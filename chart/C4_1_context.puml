@@ -1,0 +1,25 @@
+@startuml C4_Elements
+!include  https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+title Диаграмма контекста для движка игр основанных на d20
+
+Person(owner, "Владелец", "")
+Person(cm, "Автор", "")
+Person(dm, "ДМ", "(Ведущий)")
+Person(player, "Игрок", "")
+Person(table, "Игровой стол", "")
+
+System(d20platform, "Платформа для игр, основанных на d20", "Помогает ДМ-у вести игры")
+
+System_Ext(oauth, "OAuth2 провайдеры", "")
+System_Ext(alice, "Навыки Алисы", "")
+
+Rel(owner, d20platform, "Управляет\nсистемой")
+Rel(cm, d20platform, "Наполняет\nсценарии\nконтентом")
+Rel(dm, d20platform, "Ведет\nигру")
+Rel(player, d20platform, "Играет")
+Rel_Back(table, d20platform, "Отображает\nинформацию\nвсем игрокам")
+
+Rel(d20platform, oauth, "Аутентифицирует")
+Rel(d20platform, alice, "Воспроизводит музыку и \nэффекты")
+@enduml
