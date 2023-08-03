@@ -2,6 +2,8 @@
 !include  https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 
 title Диаграмма контекста для движка игр основанных на d20
+HIDE_STEREOTYPE()
+LAYOUT_LEFT_RIGHT()
 
 Person(owner, "Владелец", "")
 Person(cm, "Автор", "")
@@ -12,14 +14,14 @@ Person(table, "Игровой стол", "")
 System(d20platform, "Платформа для игр, основанных на d20", "Помогает ДМ-у вести игры")
 
 System_Ext(oauth, "OAuth2 провайдеры", "")
-System_Ext(alice, "Навыки Алисы", "")
+System_Ext(discord, "Discord", "")
 
-Rel(owner, d20platform, "Управляет\nсистемой")
-Rel(cm, d20platform, "Наполняет\nсценарии\nконтентом")
-Rel(dm, d20platform, "Ведет\nигру")
+Rel(owner, d20platform, "Управляет системой")
+Rel(cm, d20platform, "Наполняет сценарии контентом")
+Rel(dm, d20platform, "Ведет игру")
 Rel(player, d20platform, "Играет")
-Rel_Back(table, d20platform, "Отображает\nинформацию\nвсем игрокам")
+Rel_Back(table, d20platform, "Отображает информацию всем игрокам")
 
 Rel(d20platform, oauth, "Аутентифицирует")
-Rel(d20platform, alice, "Воспроизводит музыку и \nэффекты")
+Rel(d20platform, discord, "Воспроизводит музыку и эффекты, транслирует события игрового мира")
 @enduml

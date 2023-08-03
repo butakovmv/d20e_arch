@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="us-ascii" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css"
+     height="656px" preserveAspectRatio="none" style="width:997px;height:656px;background:#FFFFFF;" version="1.1"
+     viewBox="0 0 997 656" width="997px" zoomAndPan="magnify">
+    <defs/>
+    <g>
+        <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing"
+              textLength="473" x="255" y="22.9951">&#1044;&#1080;&#1072;&#1075;&#1088;&#1072;&#1084;&#1084;&#1072;
+            &#1082;&#1086;&#1085;&#1090;&#1077;&#1082;&#1089;&#1090;&#1072; &#1076;&#1083;&#1103; &#1076;&#1074;&#1080;&#1078;&#1082;&#1072;
+            &#1080;&#1075;&#1088; &#1086;&#1089;&#1085;&#1086;&#1074;&#1072;&#1085;&#1085;&#1099;&#1093; &#1085;&#1072;
+            d20
+        </text><!--entity owner-->
+        <g id="elem_owner">
+            <rect fill="#08427B" height="86.625" rx="2.5" ry="2.5" style="stroke:#073B6F;stroke-width:0.5;" width="114"
+                  x="21" y="44.2969"/>
+            <image height="48" width="48" x="54"
+                   xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACMElEQVR4Xu2YvUrFQBCFb+kj+Ai+gq3Y2PgA+gCCtZ2V2AhqaSNiqY1gYWMjaCvXykoEKy21sLCNfELgMscksz8mWfDAB3Kuye7sTmYnmcwtbU9KRozSECOVla3T6uTqvrqZPlcPT68/XNw+VtvH19XC+sGe/f9UxIhl8/Cy+vj8qrpEYIsbR1N7fSxihDK/urvMKoeKHbH3ikGMEJi8Z9WbtH92lxyEGCHErLwVqWfvG4IYXkiBXGIn7f29iOGBAe0kUkTVsmN4EcMD255bdgwvYnigFOYW54cdx4MYHlIqT5Niy6oYHuzgORRbUsXwYAfPoV4DeHl7t+MnK/Y8EMMDzVlu9foQ5y6jFAU7hhcxvOSsRLH5D2J4KbqVqMlxoK3tnEevPogRAiuXUpFiD69ZxIghZidSV75GjFiYkGc3KMEpOW8RIxXed0kNJsrOAO0ypTfnxGvEKA0xSkMMD3zfIedJFQ4hCPlUwrX1daQWbURseonRBhNue1D5rc53JkVQwN9c21Wt+D20JxLjN7hpztahSwTi3RExLDlbhhCxm55PkWLMkrvrDBW73rUTYtSQu/aGQ4h0snNzBdD1wPWptrZDDBjL6tfiebBzbA2AUjg2NT3QYkBbrR9KTS/9YoC9eAxqeu0UI/eH21yiu7VzLSqApnIqxn8Af6TiA3A/A9Bn5+lV0xcMMWDoJs6qrakTo4a6OwZxqLa97YkxC1HzMkMzNQRtE3cFUAJilMY3OGTNL0NDLqIAAAAASUVORK5CYII="
+                   y="54.2969"/>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing"
+                  textLength="94" x="31" y="117.1484">&#1042;&#1083;&#1072;&#1076;&#1077;&#1083;&#1077;&#1094;
+            </text>
+        </g><!--entity cm-->
+        <g id="elem_cm">
+            <rect fill="#08427B" height="86.625" rx="2.5" ry="2.5" style="stroke:#073B6F;stroke-width:0.5;" width="73"
+                  x="41.5" y="166.2969"/>
+            <image height="48" width="48" x="54"
+                   xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACMElEQVR4Xu2YvUrFQBCFb+kj+Ai+gq3Y2PgA+gCCtZ2V2AhqaSNiqY1gYWMjaCvXykoEKy21sLCNfELgMscksz8mWfDAB3Kuye7sTmYnmcwtbU9KRozSECOVla3T6uTqvrqZPlcPT68/XNw+VtvH19XC+sGe/f9UxIhl8/Cy+vj8qrpEYIsbR1N7fSxihDK/urvMKoeKHbH3ikGMEJi8Z9WbtH92lxyEGCHErLwVqWfvG4IYXkiBXGIn7f29iOGBAe0kUkTVsmN4EcMD255bdgwvYnigFOYW54cdx4MYHlIqT5Niy6oYHuzgORRbUsXwYAfPoV4DeHl7t+MnK/Y8EMMDzVlu9foQ5y6jFAU7hhcxvOSsRLH5D2J4KbqVqMlxoK3tnEevPogRAiuXUpFiD69ZxIghZidSV75GjFiYkGc3KMEpOW8RIxXed0kNJsrOAO0ypTfnxGvEKA0xSkMMD3zfIedJFQ4hCPlUwrX1daQWbURseonRBhNue1D5rc53JkVQwN9c21Wt+D20JxLjN7hpztahSwTi3RExLDlbhhCxm55PkWLMkrvrDBW73rUTYtSQu/aGQ4h0snNzBdD1wPWptrZDDBjL6tfiebBzbA2AUjg2NT3QYkBbrR9KTS/9YoC9eAxqeu0UI/eH21yiu7VzLSqApnIqxn8Af6TiA3A/A9Bn5+lV0xcMMWDoJs6qrakTo4a6OwZxqLa97YkxC1HzMkMzNQRtE3cFUAJilMY3OGTNL0NDLqIAAAAASUVORK5CYII="
+                   y="176.2969"/>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing"
+                  textLength="53" x="51.5" y="239.1484">&#1040;&#1074;&#1090;&#1086;&#1088;
+            </text>
+        </g><!--entity dm-->
+        <g id="elem_dm">
+            <rect fill="#08427B" height="119.2188" rx="2.5" ry="2.5" style="stroke:#073B6F;stroke-width:0.5;" width="98"
+                  x="29" y="288.2969"/>
+            <image height="48" width="48" x="54"
+                   xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACMElEQVR4Xu2YvUrFQBCFb+kj+Ai+gq3Y2PgA+gCCtZ2V2AhqaSNiqY1gYWMjaCvXykoEKy21sLCNfELgMscksz8mWfDAB3Kuye7sTmYnmcwtbU9KRozSECOVla3T6uTqvrqZPlcPT68/XNw+VtvH19XC+sGe/f9UxIhl8/Cy+vj8qrpEYIsbR1N7fSxihDK/urvMKoeKHbH3ikGMEJi8Z9WbtH92lxyEGCHErLwVqWfvG4IYXkiBXGIn7f29iOGBAe0kUkTVsmN4EcMD255bdgwvYnigFOYW54cdx4MYHlIqT5Niy6oYHuzgORRbUsXwYAfPoV4DeHl7t+MnK/Y8EMMDzVlu9foQ5y6jFAU7hhcxvOSsRLH5D2J4KbqVqMlxoK3tnEevPogRAiuXUpFiD69ZxIghZidSV75GjFiYkGc3KMEpOW8RIxXed0kNJsrOAO0ypTfnxGvEKA0xSkMMD3zfIedJFQ4hCPlUwrX1daQWbURseonRBhNue1D5rc53JkVQwN9c21Wt+D20JxLjN7hpztahSwTi3RExLDlbhhCxm55PkWLMkrvrDBW73rUTYtSQu/aGQ4h0snNzBdD1wPWptrZDDBjL6tfiebBzbA2AUjg2NT3QYkBbrR9KTS/9YoC9eAxqeu0UI/eH21yiu7VzLSqApnIqxn8Af6TiA3A/A9Bn5+lV0xcMMWDoJs6qrakTo4a6OwZxqLa97YkxC1HzMkMzNQRtE3cFUAJilMY3OGTNL0NDLqIAAAAASUVORK5CYII="
+                   y="298.2969"/>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing"
+                  textLength="30" x="63" y="361.1484">&#1044;&#1052;
+            </text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="76"
+                  y="377.917">&#160;
+            </text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="39"
+                  y="394.2139">(&#1042;&#1077;&#1076;&#1091;&#1097;&#1080;&#1081;)
+            </text>
+        </g><!--entity player-->
+        <g id="elem_player">
+            <rect fill="#08427B" height="86.625" rx="2.5" ry="2.5" style="stroke:#073B6F;stroke-width:0.5;" width="74"
+                  x="41" y="442.2969"/>
+            <image height="48" width="48" x="54"
+                   xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACMElEQVR4Xu2YvUrFQBCFb+kj+Ai+gq3Y2PgA+gCCtZ2V2AhqaSNiqY1gYWMjaCvXykoEKy21sLCNfELgMscksz8mWfDAB3Kuye7sTmYnmcwtbU9KRozSECOVla3T6uTqvrqZPlcPT68/XNw+VtvH19XC+sGe/f9UxIhl8/Cy+vj8qrpEYIsbR1N7fSxihDK/urvMKoeKHbH3ikGMEJi8Z9WbtH92lxyEGCHErLwVqWfvG4IYXkiBXGIn7f29iOGBAe0kUkTVsmN4EcMD255bdgwvYnigFOYW54cdx4MYHlIqT5Niy6oYHuzgORRbUsXwYAfPoV4DeHl7t+MnK/Y8EMMDzVlu9foQ5y6jFAU7hhcxvOSsRLH5D2J4KbqVqMlxoK3tnEevPogRAiuXUpFiD69ZxIghZidSV75GjFiYkGc3KMEpOW8RIxXed0kNJsrOAO0ypTfnxGvEKA0xSkMMD3zfIedJFQ4hCPlUwrX1daQWbURseonRBhNue1D5rc53JkVQwN9c21Wt+D20JxLjN7hpztahSwTi3RExLDlbhhCxm55PkWLMkrvrDBW73rUTYtSQu/aGQ4h0snNzBdD1wPWptrZDDBjL6tfiebBzbA2AUjg2NT3QYkBbrR9KTS/9YoC9eAxqeu0UI/eH21yiu7VzLSqApnIqxn8Af6TiA3A/A9Bn5+lV0xcMMWDoJs6qrakTo4a6OwZxqLa97YkxC1HzMkMzNQRtE3cFUAJilMY3OGTNL0NDLqIAAAAASUVORK5CYII="
+                   y="452.2969"/>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing"
+                  textLength="54" x="51" y="515.1484">&#1048;&#1075;&#1088;&#1086;&#1082;
+            </text>
+        </g><!--entity table-->
+        <g id="elem_table">
+            <rect fill="#08427B" height="86.625" rx="2.5" ry="2.5" style="stroke:#073B6F;stroke-width:0.5;" width="142"
+                  x="7" y="564.2969"/>
+            <image height="48" width="48" x="54"
+                   xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACMElEQVR4Xu2YvUrFQBCFb+kj+Ai+gq3Y2PgA+gCCtZ2V2AhqaSNiqY1gYWMjaCvXykoEKy21sLCNfELgMscksz8mWfDAB3Kuye7sTmYnmcwtbU9KRozSECOVla3T6uTqvrqZPlcPT68/XNw+VtvH19XC+sGe/f9UxIhl8/Cy+vj8qrpEYIsbR1N7fSxihDK/urvMKoeKHbH3ikGMEJi8Z9WbtH92lxyEGCHErLwVqWfvG4IYXkiBXGIn7f29iOGBAe0kUkTVsmN4EcMD255bdgwvYnigFOYW54cdx4MYHlIqT5Niy6oYHuzgORRbUsXwYAfPoV4DeHl7t+MnK/Y8EMMDzVlu9foQ5y6jFAU7hhcxvOSsRLH5D2J4KbqVqMlxoK3tnEevPogRAiuXUpFiD69ZxIghZidSV75GjFiYkGc3KMEpOW8RIxXed0kNJsrOAO0ypTfnxGvEKA0xSkMMD3zfIedJFQ4hCPlUwrX1daQWbURseonRBhNue1D5rc53JkVQwN9c21Wt+D20JxLjN7hpztahSwTi3RExLDlbhhCxm55PkWLMkrvrDBW73rUTYtSQu/aGQ4h0snNzBdD1wPWptrZDDBjL6tfiebBzbA2AUjg2NT3QYkBbrR9KTS/9YoC9eAxqeu0UI/eH21yiu7VzLSqApnIqxn8Af6TiA3A/A9Bn5+lV0xcMMWDoJs6qrakTo4a6OwZxqLa97YkxC1HzMkMzNQRtE3cFUAJilMY3OGTNL0NDLqIAAAAASUVORK5CYII="
+                   y="574.2969"/>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing"
+                  textLength="75" x="17" y="637.1484">&#1048;&#1075;&#1088;&#1086;&#1074;&#1086;&#1081;
+            </text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing"
+                  textLength="6" x="92" y="637.1484">&#160;
+            </text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing"
+                  textLength="41" x="98" y="637.1484">&#1089;&#1090;&#1086;&#1083;
+            </text>
+        </g><!--entity d20platform-->
+        <g id="elem_d20platform">
+            <rect fill="#1168BD" height="89.8438" rx="2.5" ry="2.5" style="stroke:#3C7FC0;stroke-width:0.5;" width="219"
+                  x="354" y="302.7969"/>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing"
+                  textLength="107" x="368.5" y="327.6484">&#1055;&#1083;&#1072;&#1090;&#1092;&#1086;&#1088;&#1084;&#1072;
+            </text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing"
+                  textLength="6" x="475.5" y="327.6484">&#160;
+            </text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing"
+                  textLength="35" x="481.5" y="327.6484">&#1076;&#1083;&#1103;
+            </text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing"
+                  textLength="6" x="516.5" y="327.6484">&#160;
+            </text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing"
+                  textLength="36" x="522.5" y="327.6484">&#1080;&#1075;&#1088;,
+            </text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing"
+                  textLength="109" x="375.5" y="346.2734">&#1086;&#1089;&#1085;&#1086;&#1074;&#1072;&#1085;&#1085;&#1099;&#1093;
+            </text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing"
+                  textLength="6" x="484.5" y="346.2734">&#160;
+            </text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing"
+                  textLength="22" x="490.5" y="346.2734">&#1085;&#1072;
+            </text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing"
+                  textLength="6" x="512.5" y="346.2734">&#160;
+            </text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing"
+                  textLength="33" x="518.5" y="346.2734">d20
+            </text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="461.5"
+                  y="363.042">&#160;
+            </text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73" x="364"
+                  y="379.3389">&#1055;&#1086;&#1084;&#1086;&#1075;&#1072;&#1077;&#1090;
+            </text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="437"
+                  y="379.3389">&#160;
+            </text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="36" x="441"
+                  y="379.3389">&#1044;&#1052;-&#1091;
+            </text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="477"
+                  y="379.3389">&#160;
+            </text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="42" x="481"
+                  y="379.3389">&#1074;&#1077;&#1089;&#1090;&#1080;
+            </text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="523"
+                  y="379.3389">&#160;
+            </text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="36" x="527"
+                  y="379.3389">&#1080;&#1075;&#1088;&#1099;
+            </text>
+        </g><!--entity oauth-->
+        <g id="elem_oauth">
+            <rect fill="#999999" height="38.625" rx="2.5" ry="2.5" style="stroke:#8A8A8A;stroke-width:0.5;" width="207"
+                  x="784" y="279.2969"/>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing"
+                  textLength="67" x="794" y="304.1484">OAuth2
+            </text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing"
+                  textLength="6" x="861" y="304.1484">&#160;
+            </text>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing"
+                  textLength="114" x="867" y="304.1484">&#1087;&#1088;&#1086;&#1074;&#1072;&#1081;&#1076;&#1077;&#1088;&#1099;
+            </text>
+        </g><!--entity discord-->
+        <g id="elem_discord">
+            <rect fill="#999999" height="38.625" rx="2.5" ry="2.5" style="stroke:#8A8A8A;stroke-width:0.5;" width="87"
+                  x="844" y="376.2969"/>
+            <text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing"
+                  textLength="67" x="854" y="401.1484">Discord
+            </text>
+        </g><!--link owner to d20platform-->
+        <g id="link_owner_d20platform">
+            <path d="M135.33,110.0369 C186.9,131.7569 264.07,167.7769 324,210.7969 C358.48,235.5469 392.44,268.9669 418.11,296.5969 "
+                  fill="none" id="owner-to-d20platform" style="stroke:#666666;stroke-width:1.0;"/>
+            <polygon fill="#666666" points="423.78,302.7569,420.5718,294.8381,416.156,298.9002,423.78,302.7569"
+                     style="stroke:#666666;stroke-width:1.0;"/>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="74" x="181" y="128.9355">&#1059;&#1087;&#1088;&#1072;&#1074;&#1083;&#1103;&#1077;&#1090;
+            </text>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="4" x="255" y="128.9355">&#160;
+            </text>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="63" x="259" y="128.9355">&#1089;&#1080;&#1089;&#1090;&#1077;&#1084;&#1086;&#1081;
+            </text>
+        </g><!--link cm to d20platform-->
+        <g id="link_cm_d20platform">
+            <path d="M114.73,222.6569 C167.06,241.4869 266.93,277.4269 346.27,305.9769 " fill="none"
+                  id="cm-to-d20platform" style="stroke:#666666;stroke-width:1.0;"/>
+            <polygon fill="#666666" points="353.88,308.7169,347.3624,303.1923,345.3369,308.8401,353.88,308.7169"
+                     style="stroke:#666666;stroke-width:1.0;"/>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="74" x="180" y="230.9355">&#1053;&#1072;&#1087;&#1086;&#1083;&#1085;&#1103;&#1077;&#1090;
+            </text>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="4" x="254" y="230.9355">&#160;
+            </text>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="65" x="258" y="230.9355">&#1089;&#1094;&#1077;&#1085;&#1072;&#1088;&#1080;&#1080;
+            </text>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="72" x="215.5" y="244.9043">&#1082;&#1086;&#1085;&#1090;&#1077;&#1085;&#1090;&#1086;&#1084;
+            </text>
+        </g><!--link dm to d20platform-->
+        <g id="link_dm_d20platform">
+            <path d="M127.18,347.7969 C181.61,347.7969 272.16,347.7969 345.45,347.7969 " fill="none"
+                  id="dm-to-d20platform" style="stroke:#666666;stroke-width:1.0;"/>
+            <polygon fill="#666666" points="353.84,347.7969,345.84,344.7969,345.84,350.7969,353.84,347.7969"
+                     style="stroke:#666666;stroke-width:1.0;"/>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="42" x="213" y="344.9355">&#1042;&#1077;&#1076;&#1077;&#1090;
+            </text>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="4" x="255" y="344.9355">&#160;
+            </text>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="31" x="259" y="344.9355">&#1080;&#1075;&#1088;&#1091;
+            </text>
+        </g><!--link player to d20platform-->
+        <g id="link_player_d20platform">
+            <path d="M115.08,472.8169 C167.46,453.9669 266.96,418.1569 346.1,389.6869 " fill="none"
+                  id="player-to-d20platform" style="stroke:#666666;stroke-width:1.0;"/>
+            <polygon fill="#666666" points="353.69,386.9469,345.1467,386.838,347.1817,392.4824,353.69,386.9469"
+                     style="stroke:#666666;stroke-width:1.0;"/>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="48" x="227.5" y="397.9355">&#1048;&#1075;&#1088;&#1072;&#1077;&#1090;
+            </text>
+        </g><!--reverse link table to d20platform-->
+        <g id="link_table_d20platform">
+            <path d="M156.71,582.9969 C207.18,564.6969 272.85,536.5869 324,499.7969 C365.45,469.9869 403.8,426.0569 429.59,393.0769 "
+                  fill="none" id="table-backto-d20platform" style="stroke:#666666;stroke-width:1.0;"/>
+            <polygon fill="#666666" points="149.06,585.7369,157.6031,585.8601,155.5776,580.2123,149.06,585.7369"
+                     style="stroke:#666666;stroke-width:1.0;"/>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="85" x="209" y="468.9355">&#1054;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1072;&#1077;&#1090;
+            </text>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="92" x="187" y="482.9043">&#1080;&#1085;&#1092;&#1086;&#1088;&#1084;&#1072;&#1094;&#1080;&#1102;
+            </text>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="4" x="279" y="482.9043">&#160;
+            </text>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="33" x="283" y="482.9043">&#1074;&#1089;&#1077;&#1084;
+            </text>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="57" x="223" y="496.873">&#1080;&#1075;&#1088;&#1086;&#1082;&#1072;&#1084;
+            </text>
+        </g><!--link d20platform to oauth-->
+        <g id="link_d20platform_oauth">
+            <path d="M573.18,335.1769 C635.23,327.9769 712.86,318.9569 775.32,311.7069 " fill="none"
+                  id="d20platform-to-oauth" style="stroke:#666666;stroke-width:1.0;"/>
+            <polygon fill="#666666" points="783.64,310.7369,775.3462,308.6844,776.0417,314.6439,783.64,310.7369"
+                     style="stroke:#666666;stroke-width:1.0;"/>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="124" x="616.5" y="311.9355">&#1040;&#1091;&#1090;&#1077;&#1085;&#1090;&#1080;&#1092;&#1080;&#1094;&#1080;&#1088;&#1091;&#1077;&#1090;
+            </text>
+        </g><!--link d20platform to discord-->
+        <g id="link_d20platform_discord">
+            <path d="M573.13,391.8269 C583.11,394.6369 593.16,397.0469 603,398.7969 C683.36,413.1269 778.58,407.6269 835.68,401.9769 "
+                  fill="none" id="d20platform-to-discord" style="stroke:#666666;stroke-width:1.0;"/>
+            <polygon fill="#666666" points="843.83,401.1469,835.5662,398.9769,836.177,404.9457,843.83,401.1469"
+                     style="stroke:#666666;stroke-width:1.0;"/>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="105" x="626" y="353.9355">&#1042;&#1086;&#1089;&#1087;&#1088;&#1086;&#1080;&#1079;&#1074;&#1086;&#1076;&#1080;&#1090;
+            </text>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="52" x="609.5" y="367.9043">&#1084;&#1091;&#1079;&#1099;&#1082;&#1091;
+            </text>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="4" x="661.5" y="367.9043">&#160;
+            </text>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="8" x="665.5" y="367.9043">&#1080;
+            </text>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="4" x="673.5" y="367.9043">&#160;
+            </text>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="70" x="677.5" y="367.9043">&#1101;&#1092;&#1092;&#1077;&#1082;&#1090;&#1099;,
+            </text>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="88" x="604" y="381.873">&#1090;&#1088;&#1072;&#1085;&#1089;&#1083;&#1080;&#1088;&#1091;&#1077;&#1090;
+            </text>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="4" x="692" y="381.873">&#160;
+            </text>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="57" x="696" y="381.873">&#1089;&#1086;&#1073;&#1099;&#1090;&#1080;&#1103;
+            </text>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="61" x="628.5" y="395.8418">&#1080;&#1075;&#1088;&#1086;&#1074;&#1086;&#1075;&#1086;
+            </text>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="4" x="689.5" y="395.8418">&#160;
+            </text>
+            <text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing"
+                  textLength="35" x="693.5" y="395.8418">&#1084;&#1080;&#1088;&#1072;
+            </text>
+        </g><!--SRC=[VLDDRzf05BppAxQSG0fGHJtrbYPk4uaAHCWX9yjWjw0QZCoY9BS4qaWLIXDLEUIGjeV-0PT0OhwSl_3s7tLsRTU1IXN2jfxVpCxCUtxHRDVjdcanrk2yqtrTABZ6KVvZapTwjLxNSkjEcrjjdgyxhKB7Djgyrx9pNMxQpLfX-rMkB4i7xuk5bj7bbekIlYqHnppVGMSgnPlSjXZTa4yUtOjJN1VuUOnc5D1Iz6b2Ct66EqfZceihUHkX_G4TgFaInIWGPxG4OWI29N13yPdXmMFcvilKxjwEfkzNjOfMgXwMjKmsLTmwB1rKzQBsjgfNzjxjLb5BbIstwxGppb7RSZTOchxH76nZA9ZJH5oaKKjduwvwIxPSqmZI0d6w-j9KBs_eJfOp89hGM0p45wYTPfCs17OI7dMhl0SqM-NXHissdhyVuJzbAe-0vb5pQly4uROoi0f6_i5nrV4_fNpH5-TINvXf5A3AREF_eQL3YW30WExHC15zEQUxd1Wm82PAX1-HYM6YGzUEUSOnUhm1Yj8MxfkCdYBv7arbeWeHgdy6CflTkkEQgE-4Jx71YcN7Orap-KinUs26CwKHddobRQAaJu6NS3clDUntu9vaZh0UOyK5S8W0fBvqbspXKcM-YEZCV-dKbCEOmam6KMyyvhN-ssZVWGWRzJT6_LCyyxNc7-hqtmhm44_3XwY_quLoNtp5Q100h4SYv4x9RofESOKs7X9TOpbZZpueVKK61ucuLMGoATYMQnJErwT7jQ9ZeA5l0O97CSG7Z9NncRWKvo2N7tHV33SOhjBE4l1vSfmSe7GwL5gk4XyZjOW1Q6KpUUdi7m00]-->
+    </g>
+</svg>

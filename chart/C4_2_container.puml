@@ -1,0 +1,40 @@
+@startuml C4_Elements2
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+title Диаграмма контейнеров для движка игр основанных на d20
+HIDE_STEREOTYPE()
+LAYOUT_LEFT_RIGHT()
+
+Person(owner, "Владелец", "")
+Person(cm, "Автор", "")
+Person(dm, "ДМ", "(Ведущий)")
+Person(player, "Игрок", "")
+Person(table, "Игровой стол", "")
+
+System_Boundary(d20platform, "d20platform") {
+    Container(gateway, "API Gateway", "nginx", "")
+    Container(dnd, "[1] D&D 5 и [2]", "Kotlin, Spring, Postgres, Redis, REST", "[2] - схожий модуль с идентичными связями - Pathfinder 2e")
+    Container(core, "Ядро", "Kotlin, Spring, Postgres, Redis, REST", "AAA, игроки, сессии, интеграции")
+    Container(ml, "Модуль обучения и подсказок", "Kotlin, Spring, Postgres, REST, ML", "")
+    Container(discord_bot, "Бот для Discord", "Kotlin, Spring", "")
+}
+
+System_Ext(oauth, "OAuth2 провайдеры", "")
+System_Ext(discord, "Discord", "")
+
+Rel(owner, gateway, "Управляет системой")
+Rel(cm, gateway, "Наполняет контентом")
+Rel(dm, gateway, "Ведет игру, Управляет сессией, Обучает подсказки")
+Rel(player, gateway, "Смотрит игроков, сессии, Играет")
+Rel(table, gateway, "Отображает информацию всем игрокам")
+
+Rel(gateway, dnd, "")
+Rel(gateway, core, "")
+Rel(gateway, discord_bot, "")
+Rel(dnd, discord_bot, "")
+Rel(dnd, ml, "Получает реплики")
+Rel(dnd, core, "Получает права, игроков, сессии")
+
+Rel(core, oauth, "Аутентифицирует")
+Rel(discord_bot, discord, "Воспроизводит музыку и эффекты, транслирует события игрового мира")
+@enduml
