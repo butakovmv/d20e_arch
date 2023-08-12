@@ -1,75 +1,85 @@
 @startuml
 left to right direction
-actor "Интерфейс владельца" as UO
-actor "Интерфейс редактора" as UE
-actor "Интерфейс игрока" as UP
-actor "Интерфейс ведущего" as UD
 
-'database "Пользователи, права,\nигровые комнаты,\nобучающие материалы"
-'database "D&D 5" #orange
-'database "Pathfinder 2" #orange
-'database "Карты, объекты на карте" #orange
-'database "Хроника"
-'database "Текущее состояние"
-'database "Данные подсказок" #orange
+actor "Владелец" as UO $UO #blue;line:blue;line.bold;text:blue
+actor "Редактор" as UE $UE #maroon;line:maroon;line.bold;text:maroon
+actor "Игрок" as UP $UP #orange;line:orange;line.bold;text:orange
+actor "Ведущий" as UD $UD #green;line:green;line.bold;text:green
 
-note bottom of "D&D 5": объекты со свойствами,\nпоиск, фильтрация,\nобъединение
-note bottom of "Pathfinder 2": объекты со свойствами,\nпоиск, фильтрация,\nобъединение
-note bottom of "Карты, объекты на карте": файлы,\nразмеры до 1Мб
-note bottom of "Хроника": все игровые события,\nмного деталей,\nмного записей
-note bottom of "Текущее состояние": патч хроники\nпо каждому\nпрохождению
-
-cloud "Discord" #orange
-cloud "OAuth2-провайдер"
-
-frame "Ядро" {
-    usecase "Управлять пользователями"
-    usecase "Проходить обучение"
-    usecase "Искать игровые комнаты"
-    usecase "Создавать игровые комнаты"
-    usecase "Аутентифицироваться"
-
+rectangle "Пользователи" as Users {
+    usecase "Аутентифицироваться" as Auth
+    usecase "Управлять пользователями" as ManageUsers
+    UO --> Auth #blue
+    UE --> Auth #maroon
+    UP --> Auth #orange
+    UD --> Auth #green
+    UO --> ManageUsers #blue
 }
 
-frame "Данные книг, сеттингов, приключений" {
-    usecase "Получать контент" as ReadContent
+rectangle "Игровые комнаты" as Rooms {
+    usecase "Управлять игровыми комнатами" as ManageRoom
+    usecase "Искать игровые комнаты" as SearchRoom
+    usecase "Вступать в игровую комнату" as JoinRoom
+    usecase "Покидать игровую комнату" as LeaveRoom
+    UD --> ManageRoom #green
+    UP --> SearchRoom #orange
+    UP --> JoinRoom #orange
+    UP --> LeaveRoom #orange
+}
+
+rectangle "Обучение" as Education {
+    usecase "Проходить обучение" as Learn
+    usecase "Редактировать обучение" as EditLearn
+    UP --> LeaveRoom #orange
+    UE --> Learn #maroon
+    UE --> EditLearn #maroon
+    UP --> Learn #orange
+    UD --> Learn #green
+}
+
+rectangle "Контент книг, сеттингов, приключений, хоумбрю" as Content {
+    usecase "Получать контент" as ReadContent #red
     usecase "Редактировать контент" as EditContent
+    UE --> ReadContent #maroon
+    UE --> EditContent #maroon
+    UP --> ReadContent #orange
+    UD --> ReadContent #green
 }
-UE --> ReadContent
-UE --> EditContent
-UP --> ReadContent
-UD --> ReadContent
-UD --> ReadContent
+note right of ReadContent: Нужно быстродействие
 
-frame "Данные прохождения" {
-    portin change_state
-    portin read_history
-    portout db_chronic
-    portout db_state
-    portout bot_discord
+rectangle "Данные прохождения" as Campaigns {
+    usecase "Получать состояние объекта" as GetState #red
+    usecase "Менять состояние объекта" as ChangeState #red
+    usecase "Генерировать игровые объекты" as Generate #red
+    usecase "Импортировать персонажа" as ImportChar
+    usecase "Экспортировать персонажа" as ExportChar
+    usecase "Экспортировать прохождение" as ExportHistory
+    UP --> GetState #orange
+    UP --> ChangeState #orange
+    UP --> ImportChar #orange
+    UP --> ExportChar #orange
+    UD --> Generate #green
+    UD --> GetState #green
+    UD --> ChangeState #green
+    UD --> ExportHistory #green
 }
-bot_discord --> "Discord"
-db_chronic --> "Хроника"
-db_state --> "Текущее состояние"
-[Экспорт\nпрохождения,\nжурнала,\nперсонажей] --> [read_history]
-[Управление,\nимпорт,\nлисты персонажа] #orange
-[Управление,\nимпорт,\nлисты персонажа] --> [change_state]
-[Управление,\nимпорт,\nлисты персонажа] --> [read_content]
+note right of GetState: Нужно быстродействие
+note right of ChangeState: Нужно быстродействие
+note right of Generate: Нужно быстродействие
 
-'    [Редактор\nигровых\nобъектов] --> [Правила, контент D&D 5] : rw
-'    [Редактор\nигровых\nобъектов] --> [Правила, контент Pathfinder 2] : rw
-'    [Редактор\nигровых\nобъектов] --> [БД карты, объекты на карте] : rw
-'    [Управление,\nлисты персонажа] --> [Правила, контент D&D 5]: r
-'    [Управление,\nлисты персонажа] --> [Правила, контент Pathfinder 2]: r
-'    [Управление,\nлисты персонажа] --> [БД хроника] : w
-'    [Импорт,\nэкспорт\nперсонажей] --> [Правила, контент D&D 5]:rw
-'    [Импорт,\nэкспорт\nперсонажей] --> [Правила, контент Pathfinder 2]:rw
-
-"Интерфейс ведущего" --> "learn"
-frame "Подсказки" {
-    usecase "Запрашивать подсказки" as AskHint
+rectangle "Подсказки" as Hints {
+    usecase "Запрашивать подсказки" as AskHint #red
     usecase "Настраивать подсказки" as TuneHint
+    UD --> AskHint #green
+    UD --> TuneHint #green
 }
-UD --> AskHint
-UD --> TuneHint
+note right of AskHint: Нужно быстродействие
+
+'remove Hints
+'remove Users
+'remove Education
+'remove Rooms
+'remove UO
+'remove UE
+remove @unlinked
 @enduml
