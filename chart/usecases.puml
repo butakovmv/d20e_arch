@@ -21,15 +21,18 @@ rectangle "Пользователи" as Users {
     UE --> Logout #maroon
     UP --> Logout #orange
     UD --> Logout #green
-
 }
 
 rectangle "Игровые комнаты" as Rooms {
-    usecase "Управлять игровыми комнатами" as ManageRoom
+    usecase "Создавать игровую комнату" as CreateRoom
+    usecase "Редактировать игровую комнату" as EditRoom
+    usecase "Архивировать игровую комнату" as ArchiveRoom
     usecase "Искать игровые комнаты" as SearchRoom
     usecase "Вступать в игровую комнату" as JoinRoom
     usecase "Покидать игровую комнату" as LeaveRoom
-    UD --> ManageRoom #green
+    UD --> EditRoom #green
+    UD --> ArchiveRoom #green
+    UP --> CreateRoom #orange
     UP --> SearchRoom #orange
     UP --> JoinRoom #orange
     UP --> LeaveRoom #orange
@@ -47,9 +50,13 @@ rectangle "Обучение" as Education {
 
 rectangle "Контент книг, сеттингов, приключений, хоумбрю" as Content {
     usecase "Получать контент" as ReadContent #red
-    usecase "Редактировать контент" as EditContent
-    UE --> ReadContent #maroon
+    usecase "Создавать контент" as CreateContent
+    usecase "Изменять контент" as EditContent
+    usecase "Удалять контент" as DeleteContent
+    UE --> CreateContent #maroon
     UE --> EditContent #maroon
+    UE --> DeleteContent #maroon
+    UE --> ReadContent #maroon
     UP --> ReadContent #orange
     UD --> ReadContent #green
 }
@@ -58,16 +65,21 @@ rectangle "Данные прохождения" as Campaigns {
     usecase "Получать состояние объекта" as GetState #red
     usecase "Менять состояние объекта" as ChangeState #red
     usecase "Генерировать игровые объекты" as Generate #red
+    usecase "Создавать персонажа" as CreateChar
+    usecase "Редактировать персонажа" as EditChar
     usecase "Импортировать персонажа" as ImportChar
     usecase "Экспортировать персонажа" as ExportChar
     usecase "Экспортировать прохождение" as ExportHistory
     UP --> GetState #orange
     UP --> ChangeState #orange
+    UP --> CreateChar #orange
+    UP --> EditChar #orange
     UP --> ImportChar #orange
     UP --> ExportChar #orange
     UD --> Generate #green
     UD --> GetState #green
     UD --> ChangeState #green
+    UD --> EditChar #green
     UD --> ExportHistory #green
 }
 
