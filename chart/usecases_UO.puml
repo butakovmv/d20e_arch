@@ -1,0 +1,7 @@
+@startuml
+!include ./usecases.puml
+
+remove UD
+remove UE
+remove UP
+@enduml

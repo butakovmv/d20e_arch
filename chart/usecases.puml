@@ -7,13 +7,21 @@ actor "Игрок" as UP $UP #orange;line:orange;line.bold;text:orange
 actor "Ведущий" as UD $UD #green;line:green;line.bold;text:green
 
 rectangle "Пользователи" as Users {
+    usecase "Регистрироваться" as Register
     usecase "Аутентифицироваться" as Auth
     usecase "Управлять пользователями" as ManageUsers
+    usecase "Выходить из системы" as Logout
+    UP --> Register #orange
     UO --> Auth #blue
     UE --> Auth #maroon
     UP --> Auth #orange
     UD --> Auth #green
     UO --> ManageUsers #blue
+    UO --> Logout #blue
+    UE --> Logout #maroon
+    UP --> Logout #orange
+    UD --> Logout #green
+
 }
 
 rectangle "Игровые комнаты" as Rooms {
@@ -45,7 +53,6 @@ rectangle "Контент книг, сеттингов, приключений, 
     UP --> ReadContent #orange
     UD --> ReadContent #green
 }
-note right of ReadContent: Нужно быстродействие
 
 rectangle "Данные прохождения" as Campaigns {
     usecase "Получать состояние объекта" as GetState #red
@@ -63,9 +70,6 @@ rectangle "Данные прохождения" as Campaigns {
     UD --> ChangeState #green
     UD --> ExportHistory #green
 }
-note right of GetState: Нужно быстродействие
-note right of ChangeState: Нужно быстродействие
-note right of Generate: Нужно быстродействие
 
 rectangle "Подсказки" as Hints {
     usecase "Запрашивать подсказки" as AskHint #red
@@ -73,7 +77,6 @@ rectangle "Подсказки" as Hints {
     UD --> AskHint #green
     UD --> TuneHint #green
 }
-note right of AskHint: Нужно быстродействие
 
 'remove Hints
 'remove Users

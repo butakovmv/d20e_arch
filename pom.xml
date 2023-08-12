@@ -37,7 +37,8 @@
                             <include>chart/**/*.puml</include>
                         </includes>
                     </sourceFiles>
-                    <outputInSourceDirectory>true</outputInSourceDirectory>
+                    <!--                    <outputInSourceDirectory>true</outputInSourceDirectory>-->
+                    <outputDirectory>svg</outputDirectory>
                     <overwrite>true</overwrite>
                     <format>svg</format>
                 </configuration>
