@@ -1,0 +1,75 @@
+@startuml
+left to right direction
+actor "Интерфейс владельца" as UO
+actor "Интерфейс редактора" as UE
+actor "Интерфейс игрока" as UP
+actor "Интерфейс ведущего" as UD
+
+'database "Пользователи, права,\nигровые комнаты,\nобучающие материалы"
+'database "D&D 5" #orange
+'database "Pathfinder 2" #orange
+'database "Карты, объекты на карте" #orange
+'database "Хроника"
+'database "Текущее состояние"
+'database "Данные подсказок" #orange
+
+note bottom of "D&D 5": объекты со свойствами,\nпоиск, фильтрация,\nобъединение
+note bottom of "Pathfinder 2": объекты со свойствами,\nпоиск, фильтрация,\nобъединение
+note bottom of "Карты, объекты на карте": файлы,\nразмеры до 1Мб
+note bottom of "Хроника": все игровые события,\nмного деталей,\nмного записей
+note bottom of "Текущее состояние": патч хроники\nпо каждому\nпрохождению
+
+cloud "Discord" #orange
+cloud "OAuth2-провайдер"
+
+frame "Ядро" {
+    usecase "Управлять пользователями"
+    usecase "Проходить обучение"
+    usecase "Искать игровые комнаты"
+    usecase "Создавать игровые комнаты"
+    usecase "Аутентифицироваться"
+
+}
+
+frame "Данные книг, сеттингов, приключений" {
+    usecase "Получать контент" as ReadContent
+    usecase "Редактировать контент" as EditContent
+}
+UE --> ReadContent
+UE --> EditContent
+UP --> ReadContent
+UD --> ReadContent
+UD --> ReadContent
+
+frame "Данные прохождения" {
+    portin change_state
+    portin read_history
+    portout db_chronic
+    portout db_state
+    portout bot_discord
+}
+bot_discord --> "Discord"
+db_chronic --> "Хроника"
+db_state --> "Текущее состояние"
+[Экспорт\nпрохождения,\nжурнала,\nперсонажей] --> [read_history]
+[Управление,\nимпорт,\nлисты персонажа] #orange
+[Управление,\nимпорт,\nлисты персонажа] --> [change_state]
+[Управление,\nимпорт,\nлисты персонажа] --> [read_content]
+
+'    [Редактор\nигровых\nобъектов] --> [Правила, контент D&D 5] : rw
+'    [Редактор\nигровых\nобъектов] --> [Правила, контент Pathfinder 2] : rw
+'    [Редактор\nигровых\nобъектов] --> [БД карты, объекты на карте] : rw
+'    [Управление,\nлисты персонажа] --> [Правила, контент D&D 5]: r
+'    [Управление,\nлисты персонажа] --> [Правила, контент Pathfinder 2]: r
+'    [Управление,\nлисты персонажа] --> [БД хроника] : w
+'    [Импорт,\nэкспорт\nперсонажей] --> [Правила, контент D&D 5]:rw
+'    [Импорт,\nэкспорт\nперсонажей] --> [Правила, контент Pathfinder 2]:rw
+
+"Интерфейс ведущего" --> "learn"
+frame "Подсказки" {
+    usecase "Запрашивать подсказки" as AskHint
+    usecase "Настраивать подсказки" as TuneHint
+}
+UD --> AskHint
+UD --> TuneHint
+@enduml
