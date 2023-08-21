@@ -8,18 +8,20 @@
   * [US2. Сценарии игрока](#us2-сценарии-игрока)
 <!-- TOC -->
 
+Красным помечены сценарии, к которым предъявляются повышенные требования.
+
 ## US1. Сценарии владельца
 
-![](svg/chart/usecases_UO.svg)
+![](svg/chart/usecase/UO.svg)
 
 ## US2. Сценарии редактора
 
-![](svg/chart/usecases_UE.svg)
+![](svg/chart/usecase/UE.svg)
 
 ## US2. Сценарии ведущего
 
-![](svg/chart/usecases_UD.svg)
+![](svg/chart/usecase/UD.svg)
 
 ## US2. Сценарии игрока
 
-![](svg/chart/usecases_UP.svg)
+![](svg/chart/usecase/UP.svg)

@@ -1,0 +1,27 @@
+@startuml
+left to right direction
+
+package "Ядро" {
+    [Общий UI]
+    [Игровые комнаты] as Room
+    [Обучение] as Learn
+    [Пользователи] as User
+}
+
+package "Контент" {
+    [UI игры]
+    [Генераторы] as Generator #orange
+    [Игровые объекты] as Object #orange
+    [Контент книг] as Content #orange
+    [Персонажи] as Hero
+    [Прохождения] as Campaign
+}
+package "Подсказки" {
+    [Подсказки] as Hint #orange
+}
+
+Object --> Content
+Campaign --> Object
+Generator --> Object
+Hero --> Object
+@enduml

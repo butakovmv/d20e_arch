@@ -1,0 +1,45 @@
+@startuml
+left to right direction
+
+package "Предметные области без сценариев с повышенными требованиями" as Common {
+    !include ./domains.puml
+    remove Content
+    remove Hint
+    remove Generator
+    remove Object
+}
+
+package "Контент" {
+    !include ./domains.puml
+    remove Content
+    remove Hint
+    remove Generator
+    remove Object
+}
+
+package "Состояние кампании" {
+    package "Персонаж" {
+        rectangle "Создавать персонажа"
+        rectangle "Редактировать персонажа"
+        rectangle "Импортировать персонажа"
+        rectangle "Экспортировать персонажа"
+    }
+    package "Игровые объекты" {
+        rectangle "Получать состояние объекта" #red
+        rectangle "Менять состояние объекта" #red
+    }
+    package "Генераторы" {
+        rectangle "Генерировать игровые объекты" #red
+    }
+    package "Прохождения" {
+        rectangle "Экспортировать прохождение"
+    }
+}
+
+package "Подсказки" {
+    package "Подсказки" {
+        rectangle "Запрашивать подсказки" #red
+        rectangle "Настраивать подсказки"
+    }
+}
+@enduml

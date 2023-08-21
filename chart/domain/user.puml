@@ -1,0 +1,8 @@
+@startuml
+package "Пользователи" as User {
+    rectangle "Регистрироваться"
+    rectangle "Аутентифицироваться"
+    rectangle "Управлять пользователями"
+    rectangle "Выходить из системы"
+}
+@enduml

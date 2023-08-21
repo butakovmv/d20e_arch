@@ -1,7 +1,7 @@
 @startuml
-!include ./usecases.puml
+!include usecases.puml
 
 remove UD
-remove UE
 remove UO
+remove UP
 @enduml

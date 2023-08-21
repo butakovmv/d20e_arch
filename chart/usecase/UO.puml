@@ -1,5 +1,5 @@
 @startuml
-!include ./usecases.puml
+!include usecases.puml
 
 remove UD
 remove UE

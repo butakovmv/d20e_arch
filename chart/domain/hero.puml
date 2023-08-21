@@ -1,0 +1,8 @@
+@startuml
+package "Персонажи" as Hero {
+    rectangle "Создавать персонажа"
+    rectangle "Редактировать персонажа"
+    rectangle "Импортировать персонажа"
+    rectangle "Экспортировать персонажа"
+}
+@enduml

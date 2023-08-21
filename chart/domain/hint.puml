@@ -1,0 +1,6 @@
+@startuml
+package "Подсказки" as Hint {
+    rectangle "Запрашивать подсказки" #orange
+    rectangle "Настраивать подсказки"
+}
+@enduml

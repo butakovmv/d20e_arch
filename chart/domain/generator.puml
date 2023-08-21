@@ -1,0 +1,5 @@
+@startuml
+package "Генераторы" as Generator {
+    rectangle "Генерировать игровые объекты" #orange
+}
+@enduml

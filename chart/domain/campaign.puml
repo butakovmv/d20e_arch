@@ -1,0 +1,7 @@
+@startuml
+package "Прохождения" as Campaign {
+    rectangle "Экспортировать прохождение"
+    rectangle "Архивировать прохождение"
+    rectangle "Запросить архивное прохождение"
+}
+@enduml

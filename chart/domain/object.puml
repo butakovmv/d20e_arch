@@ -1,0 +1,6 @@
+@startuml
+package "Игровые объекты" as Object {
+    rectangle "Получать состояние объекта" #orange
+    rectangle "Менять состояние объекта" #orange
+}
+@enduml

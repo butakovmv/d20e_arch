@@ -1,0 +1,18 @@
+@startuml
+left to right direction
+
+[Генераторы] as Generator #orange
+[Игровые комнаты] as Room
+[Игровые объекты] as Object #orange
+[Контент книг] as Content #orange
+[Обучение] as Learn
+[Персонажи] as Hero
+[Подсказки] as Hint #orange
+[Пользователи] as User
+[Прохождения] as Campaign
+
+Object --> Content
+Campaign --> Object
+Generator --> Object
+Hero --> Object
+@enduml

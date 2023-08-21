@@ -1,0 +1,8 @@
+@startuml
+package "Контент книг, сеттингов, приключений, хоумбрю" as Content {
+    rectangle "Получать контент" #orange
+    rectangle "Создавать контент"
+    rectangle "Изменять контент"
+    rectangle "Удалять контент"
+}
+@enduml

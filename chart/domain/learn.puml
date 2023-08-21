@@ -1,0 +1,6 @@
+@startuml
+package "Обучение" as Learn {
+    rectangle "Проходить обучение"
+    rectangle "Редактировать обучение"
+}
+@enduml

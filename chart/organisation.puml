@@ -1,0 +1,14 @@
+@startuml
+left to right direction
+
+rectangle "Организация" as org
+rectangle "Владелец" as owner
+rectangle "Команда разработки" as dev
+rectangle "Контент-менеджеры\n(подрядчик)" as cm
+rectangle "Специалист по ML\n(подрядчик)" as ml
+
+org --> owner
+org --> dev
+org ..> cm
+org ..> ml
+@enduml

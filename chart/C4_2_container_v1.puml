@@ -1,0 +1,45 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+title Диаграмма контейнеров для движка игр основанных на d20
+HIDE_STEREOTYPE()
+LAYOUT_LEFT_RIGHT()
+
+Person_Ext(cm, "Автор", "")
+Person_Ext(dm, "ДМ", "(Ведущий)")
+Person_Ext(owner, "Владелец", "")
+Person_Ext(player, "Игрок", "")
+Person_Ext(table, "Игровой стол", "")
+
+System_Boundary("Платформа", "d20platform") {
+    Container(gateway, "API Gateway", "nginx, webDav, кеширование, оптимизация под нагрузку", "")
+    ContainerDb(cache, "Кеш","файловая система, webDav", "")
+    Container(rules, "Механики и содержимое игр", "Kotlin, Spring, Postgres, Redis, REST", "")
+    ContainerDb(contentDB, "БД Контента", "реляционная БД", "")
+    ContainerDb(archiveDB, "БД архива", "реляционная БД", "")
+    Container(core, "Ядро", "Kotlin, Spring, Postgres, Redis, REST", "AAA, пользователи, игровые комнаты, обучение, чат-бот")
+    ContainerDb(coreDB, "БД ядра", "реляционная БД", "")
+    Container(ml, "Модуль обучения и подсказок", "Kotlin, Spring, Postgres, REST, ML", "")
+}
+
+System_Ext(oauth, "OAuth2 провайдеры", "")
+System_Ext(discord, "Discord", "")
+
+Rel_D(cm, gateway, "")
+Rel_D(dm, gateway, "")
+Rel_D(owner, gateway, "")
+Rel_D(player, gateway, "")
+Rel_D(table, gateway, "")
+
+Rel_L(core, coreDB, "")
+Rel_L(gateway, cache, "")
+Rel(gateway, core, "")
+Rel(gateway, rules, "")
+Rel_D(rules, archiveDB, "")
+Rel_D(rules, contentDB, "")
+Rel_R(rules, ml, "")
+Rel_R(rules, core, "")
+
+Rel(core, oauth, "")
+Rel(core, discord, "")
+@enduml
