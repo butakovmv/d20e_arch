@@ -1,0 +1,54 @@
+@startuml
+actor "Пользователи" as users
+
+node "Стартовый сервер" {
+    portin pi1
+    portout po1
+    portout po2
+    rectangle "контейнер nginx" {
+        portin ni1
+        portout no1
+        component "API Gateway" as gateway #orange
+        storage "Кеш" as cache #orange
+        ni1-gateway
+        gateway-no1
+        gateway-le-cache
+    }
+    rectangle "контейнер сервиса" {
+        portin si1
+        component "Сервис-монолит" as service #orange
+        portout so1
+        portout so2
+        portout so3
+        portout so4
+        si1-service
+        service-so1
+        service-so2
+        service-so3
+        service-so4
+    }
+    rectangle "контейнер БД" {
+        portin di1
+        database "БД монолита" as db #orange
+        di1-db
+    }
+
+    rectangle "контейнер подсказок" {
+        portin hi1
+        component "Модуль подсказок" as hint
+        hi1-hint
+    }
+    pi1--ni1
+    no1--si1
+    so3--po1
+    so4--po2
+    so1--di1
+    so2--hi1
+}
+cloud "OAuth2-сервис" as oauth2
+cloud "Discord API" as discord
+
+users--pi1
+po1--oauth2
+po2--discord
+@enduml

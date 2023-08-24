@@ -1,0 +1,21 @@
+@startuml
+actor "Пользователь" as user
+box Платформа #Snow
+participant "API Gatway" as gateway
+participant "Ядро" as core
+database "БД пользователей" as userDB
+end box
+
+== Авторизация ==
+user o-> gateway: некий запрос требующий прав
+gateway -> core
+core <-> userDB: получение сессии, пользователя и прав
+alt #Honeydew есть права
+    note over core: зависящая от конкретного сценария логика
+    core -> gateway
+    gateway ->o user: предусмотренный логикой код ответа
+else #MistyRose нет прав
+    core -> gateway
+    gateway ->x user: 403 ответ
+end
+@enduml

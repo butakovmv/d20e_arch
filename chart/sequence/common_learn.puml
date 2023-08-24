@@ -1,0 +1,33 @@
+@startuml
+actor "Пользователь" as user
+box Платформа #snow
+participant "API Gatway" as gateway
+participant "Ядро" as core
+database "БД пользователей" as userDB
+database "БД обучения" as learnDB
+end box
+
+==Получение списка шагов обучения ==
+user -> gateway: запрос списка шагов обучения
+gateway -> core
+core -> userDB: запрос списка шагов обучения
+core -> gateway
+gateway -> user: список шагов обучения
+
+==Прохождение шага обучения==
+user -> gateway: запрос содержимого шага обучения
+gateway -> core
+core -> learnDB: запрос содержимого шага обучения
+core -> gateway
+gateway -> user: содержимое шага обучения
+note over user
+    отображение подсказок
+    выполнение рекомендуемых действий
+end note
+user -> gateway: отметка шага изученным
+gateway -> core
+core -> userDB: отметка шага изученным
+core -> gateway
+gateway -> user: признак успешности операции
+
+@enduml

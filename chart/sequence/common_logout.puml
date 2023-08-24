@@ -1,0 +1,15 @@
+@startuml
+actor "Пользователь" as user
+box Платформа #snow
+participant "API Gatway" as gateway
+participant "Ядро" as core
+database "БД пользователей" as userDB
+end box
+
+==Выход==
+user->gateway: запрос изменения полей профиля
+gateway -> core
+core -> gateway
+gateway -> user: редирект на главную страницу
+core <-> userDB: отметка сессии как завершенной в фоне
+@enduml

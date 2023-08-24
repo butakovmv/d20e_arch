@@ -11,19 +11,19 @@ Person_Ext(owner, "Владелец", "")
 Person_Ext(player, "Игрок", "")
 Person_Ext(table, "Игровой стол", "")
 
-System_Boundary("Платформа", "d20platform") {
+System_Boundary(d20platform, "Платформа") {
     Container(gateway, "API Gateway", "nginx, webDav, кеширование, оптимизация под нагрузку", "")
     ContainerDb(cache, "Кеш","файловая система, webDav", "")
     Container(rules, "Механики и содержимое игр", "Kotlin, Spring, Postgres, Redis, REST", "")
     ContainerDb(contentDB, "БД Контента", "реляционная БД", "")
     ContainerDb(archiveDB, "БД архива", "реляционная БД", "")
-    Container(core, "Ядро", "Kotlin, Spring, Postgres, Redis, REST", "AAA, пользователи, игровые комнаты, обучение, чат-бот")
+    Container(core, "Ядро", "Kotlin, Spring, Postgres, Redis, REST", "AAA, пользователи, игровые комнаты, обучение")
     ContainerDb(coreDB, "БД ядра", "реляционная БД", "")
-    Container(ml, "Модуль обучения и подсказок", "Kotlin, Spring, Postgres, REST, ML", "")
+    Container(ml, "Модуль подсказок", "Kotlin, Spring, Postgres, REST, ML", "")
 }
 
 System_Ext(oauth, "OAuth2 провайдеры", "")
-System_Ext(discord, "Discord", "")
+System_Ext(discord, "Discord API", "")
 
 Rel_D(cm, gateway, "")
 Rel_D(dm, gateway, "")

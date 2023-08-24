@@ -1,0 +1,87 @@
+@startuml
+actor "Владелец" as user
+box Платформа #Snow
+participant "Шлюз" as gateway
+participant "Ядро" as core
+database "БД пользователей" as userDB
+database "БД кампаний" as roomDB
+database "БД объектов в кампании" as objectsDB
+database "БД книг" as bookDB
+database "БД архива" as archiveDB
+end box
+
+== Вход ==
+ref over user, gateway, core: сценарий аутентификации, редирект на админку
+
+== Запрос UI ==
+user->gateway: запрос UI
+gateway->core
+ref over user, gateway, core, userDB: сценарий авторизации
+core -> gateway
+gateway -> user: UI
+
+== Создание игровой комнаты ==
+user->gateway: создание игровой комнаты
+gateway->core
+ref over user, gateway, core, userDB: сценарий авторизации
+core <-> roomDB: создание игровой комнаты
+core <-> bookDB: получение объектов из книг
+core <-> objectsDB: создание экземпляров объектов для комнаты
+core -> gateway
+gateway -> user: признак успешности операции
+
+== Получение игровой комнаты ==
+user->gateway: получение игровой комнаты
+gateway->core
+ref over user, gateway, core, userDB: сценарий авторизации
+core <-> roomDB: получение игровой комнаты
+core -> gateway
+gateway -> user: игровая комната
+
+== Редактирование игровой комнаты ==
+user->gateway: изменение игровой комнаты
+gateway->core
+ref over user, gateway, core, userDB: сценарий авторизации
+core <-> roomDB: изменение игровой комнаты
+core -> gateway
+gateway -> user: признак успешности операции
+
+== Принятие заявки на вступление в игровую комнату ==
+user->gateway: принятие заявки
+gateway->core
+ref over user, gateway, core, userDB: сценарий авторизации
+core <-> roomDB: замена статуса игрока в\nкампании с "заявка" на "участник"
+core -> gateway
+gateway -> user: признак успешности операции
+
+== Архивирование игровой комнаты ==
+user->gateway: запрос на архивирование
+gateway->core
+ref over user, gateway, core, userDB: сценарий авторизации
+core <-> roomDB: получение кампании и ссылок на объекты
+core <-> objectsDB: получение экземпляров объектов в кампании
+core <-> archiveDB: создание архивной версии
+core <-> objectsDB: удаление экземпляров объектов в кампании
+core <-> roomDB: удаление кампании
+core -> gateway
+gateway -> user: признак успешности операции
+
+== Восстановление игровой комнаты из архива==
+user->gateway: восстановление игровой комнаты
+gateway->core
+ref over user, gateway, core, userDB: сценарий авторизации
+core <-> archiveDB: получение архивной версии
+core <-> roomDB: создание игровой комнаты
+core <-> objectsDB: создание экземпляров объектов для комнаты
+core -> gateway
+gateway -> user: признак успешности операции
+
+== Изменение своего профиля ==
+ref over user, gateway, core: сценарий изменения профиля
+
+== Обучение ==
+ref over user, gateway, core: сценарий обучения
+
+== Выход ==
+ref over user, gateway, core: сценарий выхода, редирект на главную
+@enduml

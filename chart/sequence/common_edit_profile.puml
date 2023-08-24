@@ -1,0 +1,16 @@
+@startuml
+actor "Пользователь" as user
+box Платформа #snow
+participant "API Gatway" as gateway
+participant "Ядро" as core
+database "БД пользователей" as userDB
+end box
+
+==Изменение профиля==
+user->gateway: запрос изменения профиля
+gateway->core
+ref over user, gateway, core, userDB: сценарий авторизации, нужны права редактирования некоторых полей своего профиля
+core <-> userDB: изменение профиля
+core -> gateway
+gateway -> user: признак успешности операции
+@enduml

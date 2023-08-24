@@ -1,0 +1,44 @@
+@startuml
+actor "Пользователь" as user
+box Платформа #Snow
+participant "API Gatway" as gateway
+participant "Ядро" as core
+database "БД пользователей" as userDB
+end box
+boundary "oAuth2 сервис" as oauth2
+
+== Аутентификация ==
+user o-> gateway: запрос аутентификации
+gateway -> core
+core -> oauth2: запрос аутентификации у провайдера
+alt пользователь не аутентифицирован в провайдере
+    oauth2 -> core: редирект на форму ввода
+    core -> gateway
+    gateway -> user: редирект на форму ввода
+    user -> oauth2: корректные учетные данные, при некорректных своя логика провайдера
+end
+
+alt #MistyRose неизвестный пользователь
+    oauth2 -> core: неизвестный пользователь
+    core -> gateway
+    gateway ->x user: 401 ответ
+else #Honeydew пользователь известен, разрешения есть
+oauth2 -> core: токен доступа
+else #Snow пользователь известен, но разрешений нет
+    oauth2 -> user: запрос разрешений
+    alt #Honeydew разрешает
+        user -> oauth2: предоставляет разрешения
+        oauth2 -> core: токен доступа
+        core <-> userDB: создание профиля пользователя, если его нет
+    else #MistyRose запрещает
+        user -> oauth2: отклоняет разрешения
+        oauth2 -> core: сообщение об отказе
+        core -> gateway
+        gateway ->x user: 401 ответ
+    end
+end
+core <-> userDB: создание/обновление данных в сессии
+core -> gateway
+gateway ->o user: вход успешен,\nредирект на целевую страницу
+
+@enduml

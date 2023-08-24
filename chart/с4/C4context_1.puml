@@ -14,7 +14,7 @@ Person_Ext(table, "Игровой стол", "")
 System(d20platform, "Платформа для игр, основанных на d20", "Помогает ДМ-у вести игры")
 
 System_Ext(oauth, "OAuth2 провайдеры", "")
-System_Ext(discord, "Discord", "")
+System_Ext(discord, "Discord API", "")
 
 Rel(owner, d20platform, "Управляет системой")
 Rel(cm, d20platform, "Наполняет контентом")

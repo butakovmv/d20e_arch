@@ -1,0 +1,72 @@
+@startuml
+actor "Владелец" as user
+box Платформа #Snow
+participant "Шлюз" as gateway
+participant "Ядро" as core
+database "БД пользователей" as userDB
+database "БД кампаний" as roomDB
+end box
+
+== Вход ==
+ref over user, gateway, core: сценарий аутентификации, редирект на админку
+
+== Запрос UI ==
+user->gateway: запрос UI
+gateway->core
+ref over user, gateway, core, userDB: сценарий авторизации
+core -> gateway
+gateway -> user: UI
+
+== Поиск игровой комнаты ==
+user->gateway: поиск игровой комнаты
+gateway->core
+ref over user, gateway, core, userDB: сценарий авторизации
+core <-> roomDB: выборка игровых комнат по критериям
+core -> gateway
+gateway -> user: список игровых комнат
+
+== Вступление в игровую комнату ==
+user->gateway: заявка на вступление\nв игровую комнату
+gateway->core
+ref over user, gateway, core, userDB: сценарий авторизации
+core <-> roomDB: регистрация заявки
+core -> gateway
+gateway -> user: признак успешности операции
+
+== Покидание игровой комнаты ==
+user->gateway: заявка на покидание\nв игровой комнаты
+gateway->core
+ref over user, gateway, core, userDB: сценарий авторизации
+core <-> roomDB: удаление доступа к комнате
+core -> gateway
+gateway -> user: признак успешности операции
+
+== Создание/редактирование/импорт персонажа ==
+user->gateway: запрос операции
+gateway->core
+ref over user, gateway, core, userDB: сценарий авторизации
+alt
+core <-> userDB: создание персонажа
+else
+core <-> userDB: изменение персонажа
+end
+core -> gateway
+gateway -> user: признак успеха операции
+
+== Получение/экспорт персонажа ==
+user->gateway: запрос операции
+gateway->core
+ref over user, gateway, core, userDB: сценарий авторизации
+core <-> userDB: получение персонажа
+core -> gateway
+gateway -> user: представление персонажа
+
+== Изменение своего профиля ==
+ref over user, gateway, core: сценарий изменения профиля
+
+== Обучение ==
+ref over user, gateway, core: сценарий обучения
+
+== Выход ==
+ref over user, gateway, core: сценарий выхода, редирект на главную
+@enduml

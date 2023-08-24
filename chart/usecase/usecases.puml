@@ -8,85 +8,86 @@ actor "Ведущий" as UD $UD #green;line:green;line.bold;text:green
 
 rectangle "Пользователи" as Users {
     usecase "Регистрироваться" as Register
-    usecase "Аутентифицироваться" as Auth
-    usecase "Управлять пользователями" as ManageUsers
-    usecase "Выходить из системы" as Logout
     UP --> Register #orange
-    UO --> Auth #blue
-    UE --> Auth #maroon
-    UP --> Auth #orange
+    usecase "Аутентифицироваться" as Auth
     UD --> Auth #green
+    UE --> Auth #maroon
+    UO --> Auth #blue
+    UP --> Auth #orange
+    usecase "Управлять пользователями" as ManageUsers
     UO --> ManageUsers #blue
-    UO --> Logout #blue
-    UE --> Logout #maroon
-    UP --> Logout #orange
+    usecase "Выходить из системы" as Logout
     UD --> Logout #green
+    UE --> Logout #maroon
+    UO --> Logout #blue
+    UP --> Logout #orange
 }
 
-rectangle "Игровые комнаты" as Rooms {
+rectangle "Игровые комнаты/прохождения" as Rooms {
     usecase "Создавать игровую комнату" as CreateRoom
+    UD --> CreateRoom #green
     usecase "Редактировать игровую комнату" as EditRoom
-    usecase "Архивировать игровую комнату" as ArchiveRoom
-    usecase "Искать игровые комнаты" as SearchRoom
-    usecase "Вступать в игровую комнату" as JoinRoom
-    usecase "Покидать игровую комнату" as LeaveRoom
     UD --> EditRoom #green
+    usecase "Архивировать игровую комнату" as ArchiveRoom
     UD --> ArchiveRoom #green
-    UP --> CreateRoom #orange
+    usecase "Восстановить игровую комнату" as RestoreRoom
+    UD --> RestoreRoom #green
+    usecase "Искать игровые комнаты" as SearchRoom
     UP --> SearchRoom #orange
+    usecase "Вступать в игровую комнату" as JoinRoom
     UP --> JoinRoom #orange
+    usecase "Покидать игровую комнату" as LeaveRoom
     UP --> LeaveRoom #orange
 }
 
 rectangle "Обучение" as Education {
     usecase "Проходить обучение" as Learn
-    usecase "Редактировать обучение" as EditLearn
-    UP --> LeaveRoom #orange
-    UE --> Learn #maroon
-    UE --> EditLearn #maroon
-    UP --> Learn #orange
     UD --> Learn #green
+    UE --> Learn #maroon
+    UP --> Learn #orange
+    usecase "Редактировать обучение" as EditLearn
+    UE --> EditLearn #maroon
 }
 
 rectangle "Контент книг, сеттингов, приключений, хоумбрю" as Content {
     usecase "Получать контент" as ReadContent #red
-    usecase "Создавать контент" as CreateContent
-    usecase "Изменять контент" as EditContent
-    usecase "Удалять контент" as DeleteContent
-    UE --> CreateContent #maroon
-    UE --> EditContent #maroon
-    UE --> DeleteContent #maroon
     UE --> ReadContent #maroon
     UP --> ReadContent #orange
     UD --> ReadContent #green
+    usecase "Создавать контент" as CreateContent
+    UE --> CreateContent #maroon
+    usecase "Изменять контент" as EditContent
+    UE --> EditContent #maroon
+    usecase "Удалять контент" as DeleteContent
+    UE --> DeleteContent #maroon
 }
 
-rectangle "Данные прохождения" as Campaigns {
+rectangle "Состояние прохождения" as Campaigns {
     usecase "Получать состояние объекта" as GetState #red
-    usecase "Менять состояние объекта" as ChangeState #red
-    usecase "Генерировать игровые объекты" as Generate #red
-    usecase "Создавать персонажа" as CreateChar
-    usecase "Редактировать персонажа" as EditChar
-    usecase "Импортировать персонажа" as ImportChar
-    usecase "Экспортировать персонажа" as ExportChar
-    usecase "Экспортировать прохождение" as ExportHistory
-    UP --> GetState #orange
-    UP --> ChangeState #orange
-    UP --> CreateChar #orange
-    UP --> EditChar #orange
-    UP --> ImportChar #orange
-    UP --> ExportChar #orange
-    UD --> Generate #green
     UD --> GetState #green
+    UP --> GetState #orange
+    usecase "Менять состояние объекта" as ChangeState #red
     UD --> ChangeState #green
+    UP --> ChangeState #orange
+    usecase "Генерировать игровые объекты" as Generate #red
+    UD --> Generate #green
+    usecase "Создавать персонажа" as CreateChar
+    UP --> CreateChar #orange
+    usecase "Редактировать персонажа" as EditChar
+    UP --> EditChar #orange
+    usecase "Импортировать персонажа" as ImportChar
+    UP --> ImportChar #orange
+    usecase "Экспортировать персонажа" as ExportChar
     UD --> EditChar #green
+    UP --> ExportChar #orange
+    usecase "Экспортировать прохождение" as ExportHistory
     UD --> ExportHistory #green
 }
 
 rectangle "Подсказки" as Hints {
     usecase "Запрашивать подсказки" as AskHint #red
-    usecase "Настраивать подсказки" as TuneHint
     UD --> AskHint #green
+    usecase "Настраивать подсказки" as TuneHint
     UD --> TuneHint #green
 }
 

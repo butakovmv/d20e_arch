@@ -1,0 +1,43 @@
+@startuml
+actor "Владелец" as user
+box Платформа #Snow
+participant "Шлюз" as gateway
+participant "Ядро" as core
+database "БД пользователей" as userDB
+end box
+
+== Вход ==
+ref over user, gateway, core: сценарий аутентификации, редирект на админку
+
+== Запрос UI ==
+user->gateway: запрос админки
+gateway->core
+ref over user, gateway, core, userDB: сценарий авторизации
+core -> gateway
+gateway -> user: UI админки
+
+== Запрос пользователей ==
+user->gateway: запрос пользователей
+gateway->core
+ref over user, gateway, core, userDB: сценарий авторизации
+core <-> userDB: получение списка пользователей
+core -> gateway
+gateway -> user: список пользователей
+
+== Изменение пользователя ==
+user->gateway: запрос изменения пользователя
+gateway->core
+ref over user, gateway, core, userDB: сценарий авторизации
+core <-> userDB: изменения пользователя
+core -> gateway
+gateway -> user: признак успешности операции
+
+== Изменение своего профиля ==
+ref over user, gateway, core: сценарий изменения профиля
+
+== Обучение ==
+ref over user, gateway, core: сценарий обучения
+
+== Выход ==
+ref over user, gateway, core: сценарий выхода, редирект на главную
+@enduml

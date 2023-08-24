@@ -1,0 +1,11 @@
+@startuml
+actor "Пользователь" as user
+actor "Пользователь" as user
+box Платформа #azure
+participant "API Gatway" as gateway
+participant "Ядро" as core
+database "БД пользователей" as userDB
+end box
+
+
+@enduml

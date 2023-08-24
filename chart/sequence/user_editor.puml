@@ -1,0 +1,73 @@
+@startuml
+actor "Редактор" as user
+box Платформа #Snow
+participant "Шлюз" as gateway
+participant "Ядро" as core
+database "БД обучения" as learnDB
+database "БД книг" as bookDB
+end box
+
+== Вход ==
+ref over user, gateway, core: сценарий аутентификации, редирект на админку
+
+== Запрос UI ==
+user->gateway: запрос редактора
+gateway->core
+ref over user, gateway, core: сценарий авторизации
+core -> gateway
+gateway -> user: UI редактора
+
+== Запрос списка контента/обучения ==
+user->gateway: запрос списка контента
+gateway->core
+ref over user, gateway, core: сценарий авторизации
+core <-> learnDB: получение списка этапов обучения
+core <-> bookDB: получение списка материалов книг
+core -> gateway
+gateway -> user: список контента
+
+== Создание контента/обучения ==
+user->gateway: запрос создания контента
+gateway->core
+ref over user, gateway, core: сценарий авторизации
+alt
+core <-> learnDB: создание этапа обучения
+else
+core <-> bookDB: создание контента
+end
+core -> gateway
+gateway -> user: признак успешности операции
+
+== Изменение контента/обучения ==
+user->gateway: запрос изменения контента
+gateway->core
+ref over user, gateway, core: сценарий авторизации
+alt
+core <-> learnDB: изменение этапа обучения
+else
+core <-> bookDB: изменение контента
+end
+core -> gateway
+gateway -> user: признак успешности операции
+
+== Удаление контента/обучения ==
+user->gateway: запрос создания контента
+gateway->core
+ref over user, gateway, core: сценарий авторизации
+alt
+core <-> learnDB: удаление этапа обучения
+else
+core <-> bookDB: удаление контента
+end
+core -> gateway
+gateway -> user: признак успешности операции
+
+== Изменение своего профиля ==
+ref over user, gateway, core: сценарий изменения профиля
+
+== Обучение ==
+ref over user, gateway, core: сценарий обучения
+
+== Выход ==
+ref over user, gateway, core: сценарий выхода, редирект на главную
+@enduml

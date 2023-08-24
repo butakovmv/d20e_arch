@@ -12,16 +12,16 @@
 
 ## US1. Сценарии владельца
 
-![](svg/chart/usecase/UO.svg)
+![](../svg/chart/usecase/UO.svg)
 
 ## US2. Сценарии редактора
 
-![](svg/chart/usecase/UE.svg)
+![](../svg/chart/usecase/UE.svg)
 
 ## US2. Сценарии ведущего
 
-![](svg/chart/usecase/UD.svg)
+![](../svg/chart/usecase/UD.svg)
 
 ## US2. Сценарии игрока
 
-![](svg/chart/usecase/UP.svg)
+![](../svg/chart/usecase/UP.svg)

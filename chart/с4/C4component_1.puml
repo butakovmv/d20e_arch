@@ -1,0 +1,105 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title Диаграмма контейнеров для движка игр основанных на d20
+HIDE_STEREOTYPE()
+LAYOUT_LEFT_RIGHT()
+
+Person_Ext(cm, "Автор", "")
+Person_Ext(dm, "ДМ", "(Ведущий)")
+Person_Ext(owner, "Владелец", "")
+Person_Ext(player, "Игрок", "")
+Person_Ext(table, "Игровой стол", "")
+System_Ext(oauth, "OAuth2 провайдеры", "")
+System_Ext(discord, "Discord API", "")
+
+System_Boundary(d20platform, "Платформа") {
+    Container(gateway, "API Gateway", "nginx, webDav, условное кеширование", "")
+    ContainerDb(cache, "Кеш", "fs, webDav", "")
+
+    Container_Boundary(bookApp, "Сервис книг", "Kotlin, Spring, REST", ""){
+        Component(content,"Контент книг")
+    }
+    Container_Boundary(bookDB, "БД книг") {
+        Component(dbBooks,"Контент книг")
+    }
+    Rel(bookApp,content, "")
+    Rel(content, dbBooks, "")
+
+    Container_Boundary(hintApp, "Сервис подсказок", "Kotlin, Spring, Postgres, Redis, REST", ""){
+        Component(hintSupplier, "Генераторы подсказок")
+    }
+    Container(ml, "Модуль подсказок", "Kotlin, Spring, Postgres, REST, ML", "")
+    Rel(hintSupplier, ml, "")
+
+    Container_Boundary(gameApp, "Сервис игры", "Kotlin, Spring, Postgres, Redis, REST", ""){
+            Component(bot, "Чат-бот")
+            Component(eventHandler, "Обработчик действий при игре")
+            Component(generators, "Генераторы объектов")
+            Component(heroes,"Редактор персонажей")
+            Component(objects, "Объекты в прохождении")
+
+            Rel(gameApp, heroes, "")
+            Rel(gameApp, eventHandler, "")
+            Rel(gameApp, generators, "")
+            Rel(gameApp, objects, "")
+
+            Rel(generators, objects, "")
+            Rel(heroes, objects, "")
+
+            Rel_D(eventHandler, objects, "")
+            Rel_D(eventHandler, bot, "")
+        }
+        Container_Boundary(gameDB, "БД игр") {
+            Component(dbObjects,"Объекты в кампании")
+            Component(dbChronic, "Хроника событий в кампании")
+        }
+        Rel(objects, dbObjects,  "")
+        Rel(eventHandler, dbChronic,  "")
+
+    Container_Boundary(coreApp, "Сервис ядра", "Kotlin, Spring, Postgres, Redis, REST", ""){
+        Component(aaa,"AAA")
+        Component(archive, "Завершенные кампании")
+        Component(learn,"Обучение")
+        Component(rooms,"Игровые комнаты")
+        Component(users,"Пользователи")
+        ComponentDb(userCache, "Кеш пользователей")
+        Rel_L(users, userCache,"")
+        Rel(coreApp, aaa,"")
+        Rel(coreApp, archive,"")
+        Rel(coreApp, learn,"")
+        Rel(coreApp, rooms,"")
+        Rel(coreApp, users,"")
+
+    }
+    Container_Boundary(coreDB, "БД ядра") {
+        Component(dbLearn,"Обучение")
+        Component(dbUsers,"Пользователи")
+        Component(dbRooms,"Игровые комнаты")
+        Component(dbArchive,"Архив кампаний")
+        Component(dbAAA,"Записи аудита")
+    }
+    Rel(rooms, dbRooms, "")
+    Rel(users, dbUsers, "")
+    Rel(learn, dbLearn, "")
+    Rel(archive, dbArchive, "")
+    Rel(aaa, dbAAA, "")
+}
+Rel_D(cm, gateway, "")
+Rel_D(dm, gateway, "")
+Rel_D(owner, gateway, "")
+Rel_D(player, gateway, "")
+Rel_D(table, gateway, "")
+
+Rel_R(gateway, cache, "")
+Rel(gateway, coreApp, "")
+Rel(gateway, hintApp, "")
+Rel(gateway, bookApp, "")
+Rel(gateway, gameApp, "")
+
+Rel(aaa, oauth, "")
+Rel(bot, discord, "")
+
+Rel(objects, content, "")
+
+@enduml
