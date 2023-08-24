@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Пользовательский интерфейс платформы
-  description: Title
+  description: Пользовательский интерфейс платформы
   version: 1.0.0
 servers:
   - url: 'http://localhost/'
@@ -34,6 +34,38 @@ components:
             editRooms: редактировать игровые комнаты
             hostGame: вести игры
             playGame: играть в игры
+  parameters:
+    contentId:
+      name: contentId
+      in: path
+      required: true
+      description: Идентификатор контента
+      schema:
+        type: string
+        format: uuid
+    type:
+      name: type
+      in: path
+      required: true
+      description: Тип контента
+      schema:
+        type: string
+    roomId:
+      name: roomId
+      in: path
+      required: true
+      description: Идентификатор игровой комнаты
+      schema:
+        type: string
+        format: uuid
+    userId:
+      name: userId
+      in: path
+      required: true
+      description: Идентификатор пользователя
+      schema:
+        type: string
+        format: uuid
 
   responses:
     Page: #200
@@ -126,6 +158,8 @@ paths:
       summary: Получение страницы профиля указанного пользователя
       tags: [ Профиль ]
       security: [ oAuth: [ playGame, hostGame ] ]
+      parameters:
+        - $ref: "#/components/parameters/userId"
       responses:
         200:
           $ref: "#/components/responses/Page"
@@ -141,9 +175,7 @@ paths:
       description: Получение страницы админки
       summary: Получение страницы админки
       tags: [ Админка ]
-      security:
-        - oAuth:
-            - manageUsers
+      security: [ oAuth: [ manageUsers ] ]
       responses:
         200:
           $ref: "#/components/responses/Page"
@@ -157,9 +189,9 @@ paths:
       description: Получение страницы админки
       summary: Получение страницы админки
       tags: [ Админка ]
-      security:
-        - oAuth:
-            - manageUsers
+      security: [ oAuth: [ manageUsers ] ]
+      parameters:
+        - $ref: "#/components/parameters/userId"
       responses:
         200:
           $ref: "#/components/responses/Page"
@@ -177,9 +209,7 @@ paths:
       description: Получение страницы редактора
       summary: Получение страницы редактора
       tags: [ Редактор ]
-      security:
-        - oAuth:
-            - editContent
+      security: [ oAuth: [ playGame, hostGame ] ]
       responses:
         200:
           $ref: "#/components/responses/Page"
@@ -189,13 +219,14 @@ paths:
           $ref: "#/components/responses/Forbidden"
   /editor/{type}/{contentId}:
     get:
-      operationId: getEditorPage
+      operationId: getEditorcontentPage
       description: Получение страницы редактора с определенным контентом
       summary: Получение страницы редактора с определенным контентом
       tags: [ Редактор ]
-      security:
-        - oAuth:
-            - editContent
+      security: [ oAuth: [ playGame, hostGame ] ]
+      parameters:
+        - $ref: "#/components/parameters/type"
+        - $ref: "#/components/parameters/contentId"
       responses:
         200:
           $ref: "#/components/responses/Page"
@@ -213,9 +244,7 @@ paths:
       description: Получение страницы c поиском игровых комнат
       summary: Получение страницы c поиском игровых комнат
       tags: [ Игровые комнаты ]
-      security:
-        - oAuth:
-            - searchRooms
+      security: [ oAuth: [ playGame, hostGame ] ]
       responses:
         200:
           $ref: "#/components/responses/Page"
@@ -230,6 +259,8 @@ paths:
       summary: Получение страницы с игровой комнатой
       tags: [ Игровые комнаты ]
       security: [ oAuth: [ playGame, hostGame ] ]
+      parameters:
+        - $ref: "#/components/parameters/roomId"
       responses:
         200:
           $ref: "#/components/responses/Page"
@@ -248,6 +279,8 @@ paths:
       summary: Получение страницы с запущенной игрой в игровой комнате
       tags: [ Игровые комнаты ]
       security: [ oAuth: [ playGame, hostGame ] ]
+      parameters:
+        - $ref: "#/components/parameters/roomId"
       responses:
         200:
           $ref: "#/components/responses/Page"
@@ -280,6 +313,9 @@ paths:
       summary: Получение страницы с описанием и обзором единицы контента
       tags: [ Контент ]
       security: [ oAuth: [ playGame, hostGame ] ]
+      parameters:
+        - $ref: "#/components/parameters/type"
+        - $ref: "#/components/parameters/contentId"
       responses:
         200:
           $ref: "#/components/responses/Page"
