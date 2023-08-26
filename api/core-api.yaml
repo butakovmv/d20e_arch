@@ -1,0 +1,124 @@
+openapi: 3.0.3
+info:
+  title: Методы ядра
+  description: Методы ядра
+  version: 1.0.0
+servers:
+  - url: 'http://localhost/'
+
+tags:
+  - name: Генератор
+    description: Генератор
+  - name: Игровые комнаты
+    description: Просмотр, поиск игровых комнат и проведение игр
+  - name: Игровой объект
+    description: Игровой объект
+  - name: Игровые события
+    description: Игровые события
+  - name: Контент книг
+    description: Контент книг
+  - name: Пользователь
+    description: Пользователь
+  - name: Персонаж
+    description: Персонаж
+  - name: Хроника прохождения
+    description: Просмотр и поиск контента
+
+components:
+  securitySchemes:
+    oAuth:
+      type: oauth2
+      description: This API uses OAuth 2 with the implicit grant flow. [More info](https://api.example.com/docs/auth)
+      flows:
+        implicit:
+          authorizationUrl: https://api.example.com/oauth2/authorize
+          scopes:
+            viewProfile: просматривать профиль
+            manageUsers: управлять пользователями
+            editContent: редактировать контент
+            searchRooms: искать игровые комнаты
+            editRooms: редактировать игровые комнаты
+            hostGame: вести игры
+            playGame: играть в игры
+  parameters:
+    contentId:
+      name: contentId
+      in: path
+      required: true
+      description: Идентификатор контента
+      schema:
+        type: string
+        format: uuid
+    type:
+      name: type
+      in: path
+      required: true
+      description: Тип контента
+      schema:
+        type: string
+    roomId:
+      name: roomId
+      in: path
+      required: true
+      description: Идентификатор игровой комнаты
+      schema:
+        type: string
+        format: uuid
+    userId:
+      name: userId
+      in: path
+      required: true
+      description: Идентификатор пользователя
+      schema:
+        type: string
+        format: uuid
+
+  responses:
+    Created: #201
+      description: Объект создан
+    Done: #202
+      description: Операция выполнена успешно
+    NotModified: #304
+      description: Уведомление, что запрашиваемые объекты не изменялись
+      headers:
+        Modified:
+          description: Адрес целевой страницы
+          schema:
+            type: string
+            example: /
+    BadRequest: #400
+      description: Сообщение о некорректных параметрах в запросе
+      content:
+        application/json:
+          schema:
+            type: object
+    NeedAuthentication: #401
+      description: Сообщение о доступе только для аутентифицированных
+      content:
+        application/json:
+          schema:
+            type: object
+    Forbidden: #403
+      description: Сообщение об отсутствии доступа
+      content:
+        application/json:
+          schema:
+            type: object
+    NotFound: #404
+      description: Сообщение об ненайденой требуемой сущности
+      content:
+        application/json:
+          schema:
+            type: object
+  schemas:
+    CreateRoomDto:
+      
+paths:
+  /room:
+    put:
+      operationId: createRoom
+      description: Создание игровой комнаты
+      summary: Создание игровой комнаты
+      requestBody:
+        required: true
+        description: Параметры создания игровой комнаты
