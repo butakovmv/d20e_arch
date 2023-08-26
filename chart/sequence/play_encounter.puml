@@ -6,10 +6,99 @@ participant "API Gatway" as gateway
 participant "Ядро" as core
 queue "Очередь игровых событий" as eventQueue
 database "БД событий игры" as eventDB
-database "БД книг" as bookDB
 database "БД объектов" as objectDB
+database "БД книг" as bookDB
 participant "Подсказки" as hints
+boundary "Discord" as discord
 end box
 
+==Начало столкновения==
+dm --> gateway: Инициирует столкновение
+gateway --> core
+ref over user, gateway, core, userDB: сценарий авторизации
+core --> core: выполнение бросков инициативы для NPC
+core --> eventQueue: регистрация результатов бросков инициативы NPC
+core --> eventQueue: регистрация запроса бросков инициативы
+core --> gateway
+gateway --> dm: признак успешной операции
 
+ref over dm, user, eventDB: Сценарий получение состояния объектов на игровом столе каждым из участников
+note over player: Обнаруживает запрос проверки
+player --> gateway: выполняет бросок инициативы
+gateway --> core
+ref over user, gateway, core, userDB: сценарий авторизации
+core --> eventQueue: регистрация броска инициативы игрока
+core --> gateway
+gateway --> player: признак успешной операции
+
+==Выполнение действий игрока / Выполнение реакции игрока==
+ref over dm, user, bookDB: сценарий поиска доступных действий
+player --> gateway: заявка на действие
+gateway --> core
+ref over user, gateway, core, userDB: сценарий авторизации
+core --> gateway
+gateway --> dm: оповещение о заявке
+
+dm --> gateway: одобрение заявки + список проверок
+gateway --> core
+ref over user, gateway, core, userDB: сценарий авторизации
+alt заявка требует проверок
+core --> gateway
+gateway --> player: запрос проверок
+player --> gateway: выполнение проверки
+gateway --> core
+ref over user, gateway, core, userDB: сценарий авторизации
+end
+core --> gateway
+gateway --> dm: результат выполнения проверки
+
+dm --> gateway: запрос подсказок
+gateway --> core
+ref over user, gateway, core, userDB: сценарий авторизации
+core <--> hints: запрос и формирование подходящих подсказок
+core --> gateway
+gateway --> dm: список подсказок
+
+dm --> gateway: описание произошедшего
+gateway --> core
+ref over user, gateway, core, userDB: сценарий авторизации
+core --> eventQueue: игровое событие
+core --> gateway
+gateway --> dm: признак успеха операции
+
+==Выполнение действий NPC / Выполнение реакции NPC==
+ref over dm, user, bookDB: сценарий поиска доступных действий
+dm --> gateway: выполнение действия + список проверок выбранным игрокам
+gateway --> core
+ref over user, gateway, core, userDB: сценарий авторизации
+core --> eventQueue: регистрация запроса проверок
+core --> gateway
+gateway --> dm: признак успешной операции
+
+ref over dm, user, eventDB: Сценарий получение состояния объектов на игровом столе каждым из участников
+note over player: Обнаруживает запрос проверки
+
+player --> gateway: выполнение проверок
+gateway --> core
+ref over user, gateway, core, userDB: сценарий авторизации
+core --> eventQueue: регистрация прохождения проверок
+core --> gateway
+gateway --> player: признак успешной операции
+
+ref over dm, user, eventDB: Сценарий получение состояния объектов на игровом столе каждым из участников
+note over dm: Обнаруживает результаты проверок
+
+dm --> gateway: запрос подсказок
+gateway --> core
+ref over user, gateway, core, userDB: сценарий авторизации
+core <--> hints: запрос и формирование подходящих подсказок
+core --> gateway
+gateway --> dm: список подсказок
+
+dm --> gateway: описание произошедшего
+gateway --> core
+ref over user, gateway, core, userDB: сценарий авторизации
+core --> eventQueue: игровое событие
+core --> gateway
+gateway --> dm: признак успеха операции
 @enduml

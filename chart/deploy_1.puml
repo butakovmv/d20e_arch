@@ -13,7 +13,7 @@ node "srv1" {
         gateway-no1
         gateway-le-cache
     }
-    rectangle "контейнер сервиса" {
+    rectangle "контейнер сервиса\n[1..2]" {
         portin si1
         component "Сервис" as service
         portout so1
@@ -39,7 +39,7 @@ node "srv1" {
             q1 - coreQueue
         }
 
-    rectangle "контейнер подсказок" {
+    rectangle "контейнер подсказок\n[1..2]" {
         portin hi1
         component "Модуль подсказок" as hint
         database "БД подсказок" as hintDb
