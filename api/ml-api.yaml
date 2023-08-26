@@ -1,0 +1,130 @@
+openapi: 3.0.3
+info:
+  title: Методы работы с подсказками
+  description: Методы работы с подсказками
+  version: 1.0.0
+servers:
+  - url: 'http://localhost/'
+tags:
+  - name: Подсказки
+    description: Подсказки
+
+components:
+  responses:
+    Created: #201
+      description: Объект создан
+    Done: #202
+      description: Операция выполнена успешно
+    BadRequest: #400
+      description: Сообщение о некорректных параметрах в запросе
+      content:
+        application/json:
+          schema:
+            type: object
+    NotFound: #404
+      description: Сообщение об ненайденой требуемой сущности
+      content:
+        application/json:
+          schema:
+            type: object
+  schemas:
+    CreateHintDto:
+      type: object
+      description: пока не структурированное описание подсказки
+    SearchHintDto:
+      type: object
+      description: пока не структурированное описание запроса подсказок
+    HintDto:
+      type: object
+      description: пока не структурированное описание подсказки
+
+paths:
+  /hint/:
+    put:
+      operationId: createHint
+      description: Создание подсказки
+      summary: Создание подсказки
+      tags: [ Подсказки ]
+      requestBody:
+        description: Описание подсказки
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateHintDto"
+      responses:
+        201:
+          $ref: "#/components/responses/Created"
+    post:
+      operationId: recommendHint
+      description: Запрос подходящих подсказок
+      summary: Запрос подходящих подсказок
+      tags: [ Подсказки ]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SearchHintDto"
+      responses:
+        200:
+          description: Список подсказок в порядке рекомендации
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/HintDto"
+
+  /hint/{hintId}:
+    parameters:
+      - name: hintId
+        in: path
+        description: Идентификатор подсказки
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: getHint
+      description: Получение подсказки
+      summary: Получение подсказки
+      tags: [ Подсказки ]
+      responses:
+        200:
+          description: Подсказка
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HintDto"
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+    post:
+      operationId: updateHint
+      description: Изменение подсказки
+      summary: Изменение подсказки
+      tags: [ Подсказки ]
+      requestBody:
+        description: Описание подсказки
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateHintDto"
+      responses:
+        204:
+          $ref: "#/components/responses/Done"
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+    delete:
+      operationId: deleteHint
+      description: Удаление подсказки
+      summary: Удаление подсказки
+      tags: [ Подсказки ]
+      responses:
+        204:
+          $ref: "#/components/responses/Done"
+        400:
+          $ref: "#/components/responses/BadRequest"
