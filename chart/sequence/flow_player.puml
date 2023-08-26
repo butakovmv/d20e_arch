@@ -1,0 +1,17 @@
+@startuml
+rectangle "Искать кампанию" as searchRoom
+rectangle "Просматривать кампанию" as viewRoom
+rectangle "Запрос на вступление в кампанию" as joinRoom
+rectangle "Импорт персонажа" as importHero
+rectangle "Создать персонажа" as createHero
+rectangle "Играть [*]" as play
+rectangle "Покинуть кампанию" as leave
+
+searchRoom-->viewRoom
+viewRoom<-R->joinRoom
+viewRoom-L->leave
+leave-U->searchRoom
+viewRoom<-->importHero
+viewRoom<-->createHero
+viewRoom<-->play
+@enduml

@@ -1,10 +1,14 @@
 @startuml
-actor "Пользователь" as user
-actor "Пользователь" as user
-box Платформа #azure
+actor "Ведущий" as dm
+actor "Игрок" as player
+box Платформа #snow
 participant "API Gatway" as gateway
 participant "Ядро" as core
-database "БД пользователей" as userDB
+queue "Очередь игровых событий" as eventQueue
+database "БД событий игры" as eventDB
+database "БД книг" as bookDB
+database "БД объектов" as objectDB
+participant "Подсказки" as hints
 end box
 
 

@@ -1,0 +1,31 @@
+@startuml
+rectangle "Определение инициативы" as init
+rectangle "Режим столкновения" as encounterMode {
+
+    rectangle "Запрос подсказок" as hint
+    rectangle "Действия NPC в свой ход" as npcAct
+    rectangle "Обработка реакций и проверок игрока" as playerChecks
+    rectangle "Обработка действий игрока" as playerAct
+    rectangle "ООбработка реакций и проверок npc" as npcChecks
+    npcAct <-R-> playerChecks
+    playerAct <-R-> npcChecks
+    playerChecks --> playerAct
+    npcChecks --> npcAct
+    npcAct .. hint
+    playerAct .. hint
+    playerChecks .. hint
+    npcChecks .. hint
+}
+rectangle "Режим исследования" as exploreMode {
+}
+rectangle "Режим путешествия" as travelMode {
+}
+rectangle "Режим отдыха" as downtimeMode {
+}
+
+downtimeMode <--> exploreMode
+exploreMode -R-> init
+exploreMode <--> travelMode
+init --> encounterMode
+encounterMode -U-> exploreMode
+@enduml

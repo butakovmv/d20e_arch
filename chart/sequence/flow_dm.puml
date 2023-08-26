@@ -1,0 +1,15 @@
+@startuml
+rectangle "Создать кампанию" as createRoom
+rectangle "Просматривать кампанию" as viewRoom
+rectangle "Принять заявку на вступление" as acceptJoin
+rectangle "Играть [*]" as play
+rectangle "Архивировать кампанию" as archiveRoom
+rectangle "Восстановить кампанию" as restoreRoom
+
+createRoom-->viewRoom
+viewRoom<-R->acceptJoin
+viewRoom<-L->play
+viewRoom-->archiveRoom
+archiveRoom-R->restoreRoom
+restoreRoom-U->viewRoom
+@enduml

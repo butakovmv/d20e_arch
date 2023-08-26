@@ -1,0 +1,45 @@
+@startuml
+actor "Ведущий" as dm
+actor "Игрок" as player
+box Платформа #snow
+participant "API Gatway" as gateway
+participant "Ядро" as core
+queue "Очередь игровых событий" as eventQueue
+database "БД событий игры" as eventDB
+database "БД объектов" as objectDB
+database "БД книг" as bookDB
+participant "Подсказки" as hints
+boundary "Discord" as discord
+end box
+
+
+==Выполнение действий==
+player --> gateway: заявка на действие
+gateway --> core
+core --> gateway
+gateway --> dm: оповещение о заявке
+
+dm --> gateway: одобрение заявки + список проверок
+gateway --> core
+alt заявка требует проверок
+core --> gateway
+gateway --> player: запрос проверок
+player --> gateway: выполнение проверки
+gateway --> core
+end
+core --> gateway
+gateway --> dm: результат выполнения проверки
+
+dm --> gateway: запрос подсказок
+gateway --> core
+core <--> hints: запрос и формирование подходящих подсказок
+core --> gateway
+gateway --> dm: список подсказок
+
+dm --> gateway: описание произошедшего
+gateway --> core
+core --> eventQueue: игровое событие
+core --> gateway
+gateway --> dm: признак успеха операции
+
+@enduml

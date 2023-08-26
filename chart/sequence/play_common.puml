@@ -1,0 +1,72 @@
+@startuml
+
+actor "Игрок\nили\nВедущий" as user
+box Платформа #snow
+participant "API Gatway" as gateway
+participant "Кеш" as cache
+participant "Ядро" as core
+queue "Очередь игровых событий" as eventQueue
+database "БД событий игры" as eventDB
+database "БД объектов" as objectDB
+database "БД книг" as bookDB
+participant "Подсказки" as hints
+end box
+
+==Планирование действий==
+user --> gateway: запрос доступных действий
+gateway --> core
+ref over user, gateway, core, userDB: сценарий авторизации
+core --> bookDB: выборка подходящих действий
+core --> gateway
+gateway --> user: запрос доступных действий
+
+==Поиск игровых объектов==
+user --> gateway: поиск объектов по критерию
+gateway --> core
+ref over user, gateway, core, userDB: сценарий авторизации
+core --> bookDB: выборка подходящих объектов
+core --> gateway
+gateway --> user: список объектов
+
+==Получение состояния объектов на игровом столе==
+user --> gateway: запрос событий и состояния объектов
+gateway --> core
+ref over user, gateway, core, userDB: сценарий авторизации
+core <--> eventDB: запрос даты последнего события
+alt дата события не позже заголовка If-Modified-Since
+core --> gateway: 304, Not Modified
+gateway <--> cache: получение ответа
+gateway --> user: список объектов и событий
+else дата события позже состояния в кеше
+gateway --> core
+core --> eventDB: выборка событий
+core --> objectDB: выборка подходящих объектов
+core --> gateway
+gateway --> user: список объектов и событий
+gateway --> cache: актуализация кеша
+end
+
+==Получение истории событий за период==
+user --> gateway: запрос событий и состояния объектов
+gateway --> core
+ref over user, gateway, core, userDB: сценарий авторизации
+core --> eventDB: выборка событий
+core --> gateway
+gateway --> user: список объектов и событий
+
+==Фоновая обработка событий, хроника==
+eventQueue --> core: игровое событие
+core --> eventDB: запись о событии
+core --> eventQueue: подтверждение успешной обработки
+==Фоновая обработка событий, изменение ==
+eventQueue --> core: игровое событие
+core --> discord: публикация сообщения в канал
+core --> eventQueue: подтверждение успешной обработки
+==Фоновая обработка событий 3==
+eventQueue --> core: игровое событие
+core --> eventDB: запись о событии
+core --> objectDB: изменение состояния объектов
+core --> discord: публикация сообщения в канал
+core --> eventQueue: подтверждение успешной обработки
+
+@enduml

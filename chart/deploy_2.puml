@@ -1,9 +1,11 @@
 @startuml
 actor "Пользователи" as users
 
-node "srv1" {
+node "Стартовый сервер" {
     portin pi1
-
+    portout po1
+    portout po2
+    portout po3
     rectangle "контейнер nginx" {
         portin ni1
         portout no1
@@ -15,12 +17,11 @@ node "srv1" {
     }
     rectangle "контейнер сервиса" {
         portin si1
-        component "Сервис" as service
+        component "Сервис-монолит" as service
         portout so1
         portout so2
         portout so3
         portout so4
-        portout so5
         si1-service
         service-so1
         service-so2
@@ -29,39 +30,32 @@ node "srv1" {
     }
     rectangle "контейнер БД" {
         portin di1
-        database "БД мастер" as db
+        database "БД монолита\n      мастер" as db
         di1-db
     }
-
-    rectangle "контейнер очереди" {
-            port q1
-            queue "Очередь" as coreQueue
-            q1 - coreQueue
-        }
 
     rectangle "контейнер подсказок" {
         portin hi1
         component "Модуль подсказок" as hint
-        database "БД подсказок" as hintDb
         hi1-hint
-        hintDb-hint
     }
     pi1--ni1
     no1--si1
+    so3--po1
+    so4--po2
     so1--di1
     so2--hi1
-    so5--q1
 }
 cloud "OAuth2-сервис" as oauth2
 cloud "Discord API" as discord
 
-node "srv2" {
+node "Сервер резервной БД" {
     portin ri1
-    database "БД реплика" as replica
+    database "БД монолита\n     реплика" as replica
     ri1-replica
 }
 users--pi1
-so3--oauth2
-so4--discord
+po1---oauth2
+po2---discord
 ri1--di1
 @enduml

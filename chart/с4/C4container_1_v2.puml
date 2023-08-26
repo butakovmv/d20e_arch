@@ -16,6 +16,7 @@ System_Boundary(d20platform, "Платформа") {
     ContainerDb(cache, "Кеш", "fs, webDav", "")
     Container(coreApp, "Сервис-монолит", "Kotlin, Spring, Postgres, Redis, REST", "AAA, пользователи, игровые комнаты, обучение, чат-бот, механики, содержимое игр")
     ContainerDb(coreDB, "БД монолита", "реляционная БД", "пользователи, игровые комнаты, обучение, механики, содержимое игр, архив")
+    ContainerQueue(queue, "Очереди", "Kafka", "игровые события, события аудита")
     Container(ml, "Модуль подсказок", "Kotlin, Spring, Postgres, REST, ML", "")
 }
 
@@ -30,6 +31,8 @@ Rel_D(table, gateway, "")
 
 Rel_L(coreApp, coreDB, "")
 Rel_R(coreApp, ml, "")
+Rel_U(coreApp, queue, "")
+Rel_U(queue, coreApp, "")
 Rel(gateway, coreApp, "")
 Rel_L(gateway, cache, "")
 

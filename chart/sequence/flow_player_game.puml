@@ -1,0 +1,23 @@
+@startuml
+rectangle "Определение инициативы" as init
+rectangle "Режим столкновения" as encounterMode {
+    rectangle "Действия персонажа в свой ход" as act
+    rectangle "Проверки в чужой ход" as checks
+    rectangle "Реакции в чужой ход" as react
+    act <--> checks
+    act <--> react
+    checks <-R-> react
+}
+rectangle "Режим исследования" as exploreMode {
+}
+rectangle "Режим путешествия" as travelMode {
+}
+rectangle "Режим отдыха" as downtimeMode {
+}
+
+downtimeMode <--> exploreMode
+exploreMode -R-> init
+exploreMode <--> travelMode
+init --> encounterMode
+encounterMode -U-> exploreMode
+@enduml
